@@ -27,7 +27,7 @@ backgrounds and the latter print the logo designed for coloured (dark)
 backgrounds. Both commands take the same optional arguments as the
 `\includegraphics[]{}` command of the `graphicx` package.
 
-In addition, the style defines the two colors `lhOrange` and `lhGray`.
+In addition, the style defines the two colors `lhOrange`, `lhDarkGray`, and `lhLightGray`.
 
 ## Author
 * [Achim D. Brucker](http://www.brucker.ch/)
