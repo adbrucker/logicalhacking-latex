@@ -1,0 +1,71 @@
+%% Copyright (C) 2016 Achim D. Brucker, https://www.brucker.ch
+%%
+%% License:
+%%   This program can be redistributed and/or modified under the terms
+%%   of the LaTeX Project Public License Distributed from CTAN
+%%   archives in directory macros/latex/base/lppl.txt; either
+%%   version 1 of the License, or any later version.
+%%   OR
+%%   The 2-clause BSD-style license.
+%%
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{beamercolorthemetuos}
+     [2016/11/01 v0.0  LaTeX presentation class implementing the cooperate design of LogicalHacking.com]
+
+\usepackage{transparent}
+\mode<presentation>
+
+\setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{items}[circle]% square]
+
+\defbeamertemplate*{title page}{lh}[1][]
+{%
+  \setbox\beamer@tempbox=\hbox{\inserttitlegraphic\hyper@pagetransition\hyper@pageduration}%
+  \vbox{\hbox{\hskip-\Gm@lmargin\box\beamer@tempbox\box\@tempboxa}}%
+  \vskip-\paperheight%
+  \@tempdima=\paperwidth%
+  \advance\@tempdima by -6mm
+  \advance\@tempdima by 0mm
+  \@tempdimb=\paperheight
+  \advance\@tempdimb by -52mm
+  \mbox{}\vspace{-8mm}
+  \begin{beamercolorbox}[ht=1mm,sep=.1cm,wd=\@tempdima]{thanks}
+  \end{beamercolorbox}
+  \mbox{}\vspace{-6mm}
+  \begin{beamercolorbox}[ht=4mm,sep=.2cm,wd=\@tempdima]{thanks}
+  \end{beamercolorbox}
+  \mbox{}\vspace{-5mm}\transparent{.75}\mbox{}%
+  \begin{beamercolorbox}[ht=40mm,sep=.2cm,wd=\@tempdima]{kicker}
+    \vspace{-2mm}%
+    {\usebeamerfont{title}\inserttitle\par%
+    \ifx\insertsubtitle\@empty%
+    \else%
+    \vskip0.25em%
+    }{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+    \fi%
+    \vbox{}
+    \vfill
+     \begin{beamercolorbox}[sep=4pt,center,#1]{author}
+       \usebeamerfont{author}\insertauthor
+     \end{beamercolorbox}
+     \begin{beamercolorbox}[sep=4pt,center,#1]{institute}
+       \usebeamerfont{institute}\insertinstitute
+     \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=4pt,center,#1]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}      
+  \end{beamercolorbox}        
+  \vspace{2mm} 
+  \begin{beamercolorbox}[ht=\@tempdimb,wd=\@tempdima,ignorebg]{white}
+  \end{beamercolorbox}
+    \vspace{1mm}
+  \begin{beamercolorbox}[wd=\@tempdima,ignorebg]{white}
+    \raisebox{-\fboxsep}{{\setlength{\fboxsep}{0pt}\lhLogoLight[width=17mm]}}
+    \hfill%
+    {\partnerLogo[height=4mm]}%
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=16mm,sep=.2cm,wd=\@tempdima,ignorebg]{thanks}
+  \end{beamercolorbox}
+}
+
+\mode<all>
