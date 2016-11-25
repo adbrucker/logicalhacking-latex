@@ -1,0 +1,141 @@
+%% Copyright (C) 2016 Achim D. Brucker, https://www.brucker.ch
+%%
+%% License:
+%%   This program can be redistributed and/or modified under the terms
+%%   of the LaTeX Project Public License Distributed from CTAN
+%%   archives in directory macros/latex/base/lppl.txt; either
+%%   version 1 of the License, or any later version.
+%%   OR
+%%   The 2-clause BSD-style license.
+%%
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{beamercolorthemelh}
+     [2016/11/01 v0.0  LaTeX presentation class implementing the cooperate design of LogicalHacking.com]
+
+\mode<presentation>
+
+\def\lh@classification{Confidential}
+
+\newif\ifbeamer@colour
+\beamer@colourfalse
+
+\DeclareOptionBeamer{colour}{\beamer@colourtrue}
+\ProcessOptionsBeamer
+\ProcessOptions
+
+
+\RequirePackage{xcolor}
+\RequirePackage[]{lh-logo}[2016/08/15]
+\RequirePackage{tikz}
+\RequirePackage{xparse}
+
+\usecolortheme{lh}
+\useinnertheme{lh}
+\useoutertheme{lh}
+\usefonttheme{lh}
+\mode
+<all>
+
+\AtBeginDocument{
+\providecommand{\thanksMsg}{Thank you for your attention!}
+\providecommand{\thankYouMsg}{Thank you!}
+\providecommand{\thanksQuestionsMsg}{Any questions or remarks?}
+\providecommand{\AgendaMsg}{Outline}
+}
+
+\newcommand{\CopyrightFrame}{%
+  \bgroup\setbeamertemplate{footline}[default]%
+  \begin{frame}\vfill\Huge%
+\end{frame}
+\egroup}
+
+\newcommand{\AgendaFrame}[1][]{%
+\bgroup  \setbeamertemplate{footline}[default]%
+\begin{frame}
+  \frametitle{\AgendaMsg}
+  {\tableofcontents[#1]}
+\end{frame}
+\egroup}
+
+\newcommand{\ThanksFrame}[1][]{%
+  \begin{frame}[plain]
+  \huge
+  \begin{center}
+    \thanksMsg\\
+  \end{center}
+  \begin{center}
+    \large
+    \thanksQuestionsMsg
+  \end{center}
+\end{frame}
+}
+
+\DeclareDocumentCommand{\PartFrame}{ O{red} O{white} m }{%
+  \bgroup
+  \setbeamertemplate{footline}[default]
+  \ifbeamer@colour
+    \setbeamercolor{normal text}{fg=#2, bg=#1}
+    \setbeamercolor{structure}{fg=#2, bg=#1}
+  \else
+    \setbeamercolor{normal text}{fg=#1, bg=#2}
+    \setbeamercolor{structure}{fg=#1, bg=#2}
+  \fi
+  \part{#3}
+  \frame{\partpage}
+  \egroup
+}
+
+\newsavebox{\@tempsboxa}
+\newsavebox{\@tempsboxb}
+\newlength{\@tempdimd}
+\newenvironment{kickerbox}[1][]
+{%
+  \@tempdima=\textwidth%
+  \advance\@tempdima by -8mm%
+  \advance\@tempdima by -4mm%   
+  % 
+  \sbox{\@tempsboxb}{\parbox{4mm}{#1}}%
+  % 
+  \begin{lrbox}{\@tempsboxa}%
+    \begin{minipage}{\the\@tempdima}%
+}{%
+\end{minipage}%
+\end{lrbox}%
+  \settowidth{\@tempdima}{\usebox{\@tempsboxa}}
+  \advance\@tempdima by .4cm%
+  \settoheight{\@tempdimb}{\usebox{\@tempsboxa}}
+  \settodepth{\@tempdimc}{\usebox{\@tempsboxa}}
+  \advance\@tempdimb by .4cm%
+  \advance\@tempdimb by \the\@tempdimc%
+  %
+  \@tempdimc=\@tempdimb%
+  \settodepth{\@tempdimd}{\usebox{\@tempsboxb}}
+  \advance\@tempdimc by -\@tempdimd
+  \settodepth{\@tempdimd}{\usebox{\@tempsboxb}}
+  \advance\@tempdimc by -\@tempdimd
+\advance\@tempdimc by -.6cm
+
+  \smallskip
+  \begin{columns}[onlytextwidth]
+    \begin{column}[t]{7mm}
+    \begin{beamercolorbox}[sep=.1cm,wd=8mm,ht=\the\@tempdimb]{palette secondary}
+     \usebox{\@tempsboxb}\vspace{\the\@tempdimc}%
+   \end{beamercolorbox}
+    \end{column}
+     \begin{column}[t]{\the\@tempdima}
+       \begin{beamercolorbox}[sep=0.2cm,wd=\the\@tempdima,ht=\the\@tempdimb]{kicker}%
+         \usebox{\@tempsboxa}%
+       \end{beamercolorbox}%
+     \end{column}
+   \end{columns}
+   \smallskip
+}
+
+\newenvironment{quotebox}
+{\begin{kickerbox}[{\Huge\textbf{\usebeamercolor[bg]{kicker}{\,``}}}]}
+  {\end{kickerbox}}
+
+\newcommand{\partnerLogo}[1][]{}
+
+\endinput
+
