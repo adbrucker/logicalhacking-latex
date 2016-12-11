@@ -11,7 +11,6 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesClass{lh-presentation}%
   [2016/12/28 v0.0  LaTeX presenation class implementing the cooperate design of LogicalHacking.com]
-\RequirePackage{ifthen}
 \LoadClassWithOptions{beamer}[]
 \ProcessOptions\relax
 \usetheme{lh-presentation}
