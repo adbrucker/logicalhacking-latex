@@ -29,15 +29,15 @@
   \@tempdimb=\paperheight
   \advance\@tempdimb by -52mm
   \mbox{}\vspace{-8mm}
-  \begin{beamercolorbox}[ht=1mm,sep=.1cm,wd=\@tempdima]{thanks}
+  \begin{beamercolorbox}[ht=1mm,sep=.1cm,wd=\@tempdima]{titlerule}
   \end{beamercolorbox}
   \mbox{}\vspace{-6mm}
-  \begin{beamercolorbox}[ht=4mm,sep=.2cm,wd=\@tempdima]{thanks}
+  \begin{beamercolorbox}[ht=4mm,sep=.2cm,wd=\@tempdima]{titlerule}
   \end{beamercolorbox}
   \mbox{}\vspace{-5mm}\transparent{.75}\mbox{}%
-  \begin{beamercolorbox}[ht=40mm,sep=.2cm,wd=\@tempdima]{kicker}
+  \begin{beamercolorbox}[ht=40mm,sep=.2cm,wd=\@tempdima]{titleframe}
     \vspace{-2mm}%
-    {\usebeamerfont{title}\inserttitle\par%
+    {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par%
     \ifx\insertsubtitle\@empty%
     \else%
     \vskip0.25em%
@@ -46,16 +46,16 @@
     \vbox{}
     \vfill
      \begin{beamercolorbox}[sep=4pt,center,#1]{author}
-       \usebeamerfont{author}\insertauthor
+       \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
      \end{beamercolorbox}
      \begin{beamercolorbox}[sep=4pt,center,#1]{institute}
-       \usebeamerfont{institute}\insertinstitute
+       \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute
      \end{beamercolorbox}
     \begin{beamercolorbox}[sep=4pt,center,#1]{date}
-      \usebeamerfont{date}\insertdate
-    \end{beamercolorbox}      
-  \end{beamercolorbox}        
-  \vspace{2mm} 
+      \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
+    \end{beamercolorbox}
+  \end{beamercolorbox}
+  \vspace{2mm}
   \begin{beamercolorbox}[ht=\@tempdimb,wd=\@tempdima,ignorebg]{white}
   \end{beamercolorbox}
     \vspace{1mm}
@@ -64,7 +64,7 @@
     \hfill%
     {\partnerLogo[height=4mm]}%
   \end{beamercolorbox}
-  \begin{beamercolorbox}[ht=16mm,sep=.2cm,wd=\@tempdima,ignorebg]{thanks}
+  \begin{beamercolorbox}[ht=16mm,sep=.2cm,wd=\@tempdima,ignorebg]{titlerule}
   \end{beamercolorbox}
 }
 

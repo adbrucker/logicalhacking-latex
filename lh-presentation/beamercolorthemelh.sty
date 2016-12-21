@@ -13,21 +13,22 @@
      [2016/11/01 v0.0  LaTeX presentation class implementing the cooperate design of LogicalHacking.com]
 
 \mode<presentation>
+  
+  \setbeamercolor{title}{fg=black}
+  \setbeamercolor{subtitle}{fg=lhDarkGray}
+  \setbeamercolor{author}{fg=black}
+  \setbeamercolor{institute}{fg=black}
+  \setbeamercolor{date}{fg=black}
+  \setbeamercolor{titleframe}{fg=lhOrange,bg=white}
+  \setbeamercolor{titlerule}{bg=lhOrange,fg=white}
 
-  \setbeamercolor*{palette primary}{use=structure,fg=lhOrange,bg=structure.fg}
-  \setbeamercolor*{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
-  \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+  \setbeamercolor*{palette primary}{fg=lhDarkGray,bg=white}
+  \setbeamercolor*{palette secondary}{fg=white,bg=lhDarkGray}
+  \setbeamercolor*{palette tertiary}{fg=white,bg=lhLightGray}
   \setbeamercolor*{palette quaternary}{fg=white,bg=black}
 
-  \setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
-
-  \setbeamercolor*{palette sidebar primary}{use=structure,fg=structure.fg!10}
-  \setbeamercolor*{palette sidebar secondary}{fg=white}
-  \setbeamercolor*{palette sidebar tertiary}{use=structure,fg=structure.fg!50}
-  \setbeamercolor*{palette sidebar quaternary}{fg=white}
-
-  \setbeamercolor*{titlelike}{parent=palette primary}
-
+  \setbeamercolor{titlelike}{parent=palette primary}
+  
   \setbeamercolor*{separation line}{}
   \setbeamercolor*{fine separation line}{}
 
@@ -44,10 +45,7 @@
   \setbeamercolor{subitem}{parent=item, fg=lhLightGray}
   \setbeamercolor{subsubitem}{parent=subitem}
 
-
-  \setbeamercolor{title}{fg=lhLightGray}
-  \setbeamercolor{title page}{fg=green,bg=red}
-  \setbeamercolor{kicker}{use=structure,fg=black,bg=lhLightGray}
+  \setbeamercolor{kicker}{use=structure,fg=green,bg=white}
 
 \mode
 <all>
