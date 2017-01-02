@@ -19,10 +19,19 @@
 \setbeamertemplate{items}[square] % [circle]
 
 \defbeamertemplate*{title page}{lh}[1][]
-{%
-  \setbox\beamer@tempbox=\hbox{\inserttitlegraphic\hyper@pagetransition\hyper@pageduration}%
-  \vbox{\hbox{\hskip-\Gm@lmargin\box\beamer@tempbox\box\@tempboxa}}%
-  \vskip-\paperheight%
+{
+  % <background image>
+  \setbox\beamer@tempbox=\vbox to \paperheight {\vfil
+    \hbox to \paperwidth{%
+      \ifx\inserttitlegraphic\@empty%
+      \else%
+      \inserttitlegraphic\hyper@pagetransition\hyper@pageduration%
+      \fi%
+    }%
+    \vfil}%
+    \vbox{\hbox{\hskip-\Gm@lmargin\box\beamer@tempbox\box\@tempboxa}}%
+    \vskip-\paperheight%
+  % </background image>
   \@tempdima=\paperwidth%
   \advance\@tempdima by -6mm
   \advance\@tempdima by 0mm
