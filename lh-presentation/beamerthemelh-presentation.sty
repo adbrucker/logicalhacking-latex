@@ -76,15 +76,8 @@
 }
 
 \DeclareDocumentCommand{\PartFrame}{ O{red} O{white} m }{%
+  \setbeamercolor{footer}{fg=#1, bg=#2}
   \bgroup
-  \setbeamertemplate{footline}[default]
-  \ifbeamer@colour
-    \setbeamercolor{normal text}{fg=#2, bg=#1}
-    \setbeamercolor{structure}{fg=#2, bg=#1}
-  \else
-    \setbeamercolor{normal text}{fg=#1, bg=#2}
-    \setbeamercolor{structure}{fg=#1, bg=#2}
-  \fi
   \part{#3}
   \frame{\partpage}
   \egroup
