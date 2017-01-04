@@ -12,21 +12,17 @@
 \ProvidesPackage{beamerthemelh-presentation}
      [2016/11/01 v0.0  LaTeX presentation class implementing the cooperate design of LogicalHacking.com]
 
-\mode<presentation>
-
-\def\lh@classification{Confidential}
-
-\newif\ifbeamer@colour
-\beamer@colourfalse
-
-\DeclareOptionBeamer{colour}{\beamer@colourtrue}
 \ProcessOptionsBeamer
 \ProcessOptions
+
+\mode<presentation>
+
+
+\def\lh@classification{\classification}
 
 
 \RequirePackage{xcolor}
 \RequirePackage[]{lh-logo}[2016/08/15]
-\RequirePackage{tikz}
 \RequirePackage{xparse}
 \usepackage{lmodern}
 \usepackage{raleway}

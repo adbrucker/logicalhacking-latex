@@ -12,6 +12,41 @@
 \ProvidesClass{lh-presentation}%
   [2016/12/28 v0.0  LaTeX presenation class implementing the cooperate design of LogicalHacking.com]
 \LoadClassWithOptions{beamer}[]
+
+
+
+\usepackage{xkeyval}
+\newcommand{\classification}{UNDEFINED}
+\define@choicekey*{beamerthemelh-presentation.sty}{classification}[\val\nr]%
+{strictlyconfidential,confidential,internal,customer,public-cc-by-nc-nd,%
+  public-cc-by-nd,public-cc-by,public-cc-zero,public-gfdl}%
+[strictlyconfidential]%
+{%
+  \ifcase\nr\relax
+    \renewcommand{\classification}{\alert{Strictly Confidential}}%
+  \or
+    \renewcommand{\classification}{\alert{Confidential}}%
+  \or
+    \renewcommand{\classification}{\alert{Internal}}%
+  \or
+    \renewcommand{\classification}{\alert{Customer}}%
+  \or
+    \renewcommand{\classification}{Public (CC-BY-NC-ND)}%
+  \or
+    \renewcommand{\classification}{Public (CC-BY-ND)}%
+  \or
+    \renewcommand{\classification}{Public (CC-BY)}%
+  \or
+    \renewcommand{\classification}{Public (CC0)}%
+  \or
+    \renewcommand{\classification}{Public (GFDL)}%
+  \fi%
+}
+
+\ProcessOptionsX*<beamerthemelh-presentation.sty>
+
+
+
 \ProcessOptions\relax
 \usetheme{lh-presentation}
 \endinput
