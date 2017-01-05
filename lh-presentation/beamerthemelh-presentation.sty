@@ -121,24 +121,24 @@
   \or% customer
     CUSTOMER.
     \or% public CC BY NC ND
-    Except where otherwise noted, this presentation is licensed under
+     licensed under
     a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0
     International Public License (\lh@CCBYNCND).
   \or% public CC BY ND
-    Except where otherwise noted, this presentation is licensed under
+    licensed under
     a Creative Commons Attribution-NoDerivatives 4.0
     International Public License (\lh@CCBYND).
   \or% public CC BY
-    Except where otherwise noted, this presentation is licensed under
+    licensed under
     a Creative Commons Attribution 4.0
     International Public License (\lh@CCBY).
   \or% public CC 0
-    Except where otherwise noted, this presentation is licensed under
+    licensed under
     a \lh@CCzero license: To the extent possible under law, all copyright
     and related or neighboring rights to the slides marked \lh@CCBY are
     waived.
   \or% public GFDL
-    Except where otherwise noted, this presentation is licensed under
+    licensed under
     the \lh@GFDL:\\
      Permission is granted to copy, distribute and/or modify this document
     under the terms of the GNU Free Documentation License, Version 1.3
@@ -186,10 +186,12 @@
   \begin{frame}\vfill%
     \frametitle{Document Classification and License Information}
     \footnotesize
-    \begin{itemize}
+    \textcopyright~\the\year~\href{https://logicalhacking.com}{Logicalhacking.com}, \insertshortauthor
+    \begin{itemize}\footnotesize
     \item This presentation is classified as \emph{\classification}:\\
+       Except where otherwise noted, this presentation is
       \lh@classification@description{\lh@classification@sel}
-    \ifthenelse{%
+      \ifthenelse{%
       \boolean{lh@slide@strictlyconfidential}\OR%
       \boolean{lh@slide@confidential}\OR%
       \boolean{lh@slide@internal}\OR%
@@ -199,42 +201,42 @@
       \boolean{lh@slide@public-cc-by}\OR%
       \boolean{lh@slide@public-cc-zero}\OR%
       \boolean{lh@slide@public-gfdl}}{
-      \item Deviating, some slides are classified as: \tiny
-        \begin{itemize}
+    \item Deviating from this, the following classifications apply:
+        \begin{itemize}\tiny 
           \ifthenelse{\boolean{lh@slide@strictlyconfidential}}{
-          \item\emph{\lh@classification@text{0}:}
+          \item Slides marked \emph{\lh@classification@text{0}} are
             \lh@classification@description{0}
           }{}
           \ifthenelse{\boolean{lh@slide@confidential}}{
-          \item\emph{\lh@classification@text{1}:}
+          \item Slides marked \emph{\lh@classification@text{1}} are
             \lh@classification@description{1}
           }{}
           \ifthenelse{\boolean{lh@slide@internal}}{
-          \item\emph{\lh@classification@text{2}:}
+          \item Slides marked \emph{\lh@classification@text{2}} are
             \lh@classification@description{2}
           }{}
           \ifthenelse{\boolean{lh@slide@customer}}{
-          \item\emph{\lh@classification@text{3}:}
+          \item Slides marked \emph{\lh@classification@text{3}} are
             \lh@classification@description{3}
           }{}
           \ifthenelse{\boolean{lh@slide@public-cc-by-nc-nd}}{
-          \item\emph{\lh@classification@text{4}:}
+          \item Slides marked \emph{\lh@classification@text{4}} are
             \lh@classification@description{4}
           }{}
           \ifthenelse{\boolean{lh@slide@public-cc-by-nd}}{
-          \item\emph{\lh@classification@text{5}:}
+          \item Slides marked \emph{\lh@classification@text{5}} are
             \lh@classification@description{5}
           }{}
           \ifthenelse{\boolean{lh@slide@public-cc-by}}{
-          \item\emph{\lh@classification@text{6}:}
+          \item Slides marked \emph{\lh@classification@text{6}} are
             \lh@classification@description{6}
           }{}
           \ifthenelse{\boolean{lh@slide@public-cc-zero}}{
-          \item\emph{\lh@classification@text{7}:}
+          \item Slides marked \emph{\lh@classification@text{7}} are
             \lh@classification@description{7}
           }{}
           \ifthenelse{\boolean{lh@slide@public-gfdl}}{
-          \item\emph{\lh@classification@text{8}:}
+          \item Slides marked \emph{\lh@classification@text{8}} are
             \lh@classification@description{8}
           }{}
         \end{itemize}
