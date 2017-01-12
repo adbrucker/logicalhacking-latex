@@ -48,17 +48,17 @@
 
 \newcommand{\classification}{UNDEFINED}
 \define@choicekey*{beamerthemelh-presentation.sty}{classification}[\val\nr]%
-{strictlyconfidential,confidential,internal,customer,public-cc-by-nc-nd,%
+{strictly-confidential,confidential,internal,customer,public-cc-by-nc-nd,%
   public-cc-by-nd,public-cc-by,public-cc-zero,public-gfdl}%
-[strictlyconfidential]%
+[strictly-confidential]%
 {%
   \let\lh@classification@sel@default\nr
 }
 
 \define@choicekey*{beamerframe}{classification}[\val\nr]%
-{strictlyconfidential,confidential,internal,customer,public-cc-by-nc-nd,%
+{strictly-confidential,confidential,internal,customer,public-cc-by-nc-nd,%
   public-cc-by-nd,public-cc-by,public-cc-zero,public-gfdl}%
-[strictlyconfidential]%
+[strictly-confidential]%
 {%
   \let\lh@classification@sel\nr
   \ifcase\nr\relax% strictly confidential
