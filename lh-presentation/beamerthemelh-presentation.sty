@@ -114,15 +114,18 @@
 }
 \newcommand{\lh@classification@description}[1]{%
   \ifcase\number#1\relax% strictly confidential
-    STRICTLY CONFIDENTIAL.
-  \or% confidential
+    classified ``\emph{\lh@stricltyconfidential}'' and only available
+    to a small number of
+    precisely specified persons. Disclosure to third parties only after a
+    confidentiality agreement has been signed.
+   \or% confidential
     classified ``\emph{\lh@confidential}'' and only available to members of the Software
     Assurance \& Security Research Team that are pre-defined by the
     information owner. Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% internal
     classified ``\emph{\lh@internal}'' and only available to members of the Software
-    Assurance \& Security Research Team. Disclosure to third parties only after a
+    Assurance \& Security Research Team  Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% customer
     CUSTOMER.
