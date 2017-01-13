@@ -31,6 +31,7 @@
 \newcommand{\lh@confidential}{Confidential}
 \newcommand{\lh@internal}{Internal}
 \newcommand{\lh@customer}{Customer}
+\newcommand{\lh@student}{Student}
 \newcommand{\lh@public}{Public}
 
 
@@ -38,6 +39,7 @@
 \newboolean{lh@slide@confidential}\setboolean{lh@slide@confidential}{false}
 \newboolean{lh@slide@internal}\setboolean{lh@slide@internal}{false}
 \newboolean{lh@slide@customer}\setboolean{lh@slide@customer}{false}
+\newboolean{lh@slide@student}\setboolean{lh@slide@student}{false}
 \newboolean{lh@slide@public-cc-by-nc-nd}\setboolean{lh@slide@public-cc-by-nc-nd}{false}
 \newboolean{lh@slide@public-cc-by-nd}\setboolean{lh@slide@public-cc-by-nd}{false}
 \newboolean{lh@slide@public-cc-by}\setboolean{lh@slide@public-cc-by}{false}
@@ -48,7 +50,7 @@
 
 \newcommand{\classification}{UNDEFINED}
 \define@choicekey*{beamerthemelh-presentation.sty}{classification}[\val\nr]%
-{strictly-confidential,confidential,internal,customer,public-cc-by-nc-nd,%
+{strictly-confidential,confidential,internal,customer,student,public-cc-by-nc-nd,%
   public-cc-by-nd,public-cc-by,public-cc-zero,public-gfdl}%
 [strictly-confidential]%
 {%
@@ -56,7 +58,7 @@
 }
 
 \define@choicekey*{beamerframe}{classification}[\val\nr]%
-{strictly-confidential,confidential,internal,customer,public-cc-by-nc-nd,%
+{strictly-confidential,confidential,internal,customer,student,public-cc-by-nc-nd,%
   public-cc-by-nd,public-cc-by,public-cc-zero,public-gfdl}%
 [strictly-confidential]%
 {%
@@ -69,6 +71,8 @@
     \setboolean{lh@slide@internal}{true}
   \or% customer
     \setboolean{lh@slide@customer}{true}
+  \or% student
+    \setboolean{lh@slide@student}{true}
   \or% public
     \setboolean{lh@slide@public-cc-by-nc-nd}{true}
   \or
@@ -98,6 +102,8 @@
     \alert{\lh@internal}%
   \or% customer
     \lh@customer%
+  \or% student
+    \lh@student%
   \or% public
     \lh@public~(\lh@CCBYNCND)%
   \or
@@ -124,12 +130,18 @@
     information owner. Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% internal
-    classified ``\emph{\lh@internal}'' and only available to members of the Software
+    classified ``\emph{\lh@internal}'' and only available to staff of the Software
     Assurance \& Security Research Team  Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% customer
-    classified ``\emph{\lh@customer}'' and only available to members
+    classified ``\emph{\lh@customer}'' and only available to staff
     of the University of Sheffield and to business partners. Disclosure to third parties only after a
+    confidentiality agreement has been signed.
+  \or% student
+    classified ``\emph{\lh@student}'' and only available to staff 
+    of the University of Sheffield and to a limited group of students
+    (e.g., that are registered for a specific module) of the
+    University of Sheffield.  Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% public CC BY NC ND
      licensed under
