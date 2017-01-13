@@ -116,11 +116,13 @@
   \ifcase\number#1\relax% strictly confidential
     STRICTLY CONFIDENTIAL.
   \or% confidential
-    CONFIDENTIAL.
+    classified ``\emph{\lh@confidential}'' and only available to members of the Software
+    Assurance \& Security Research Team that are pre-defined by the
+    information owner. Disclosure to third parties only after a
+    confidentiality agreement has been signed.
   \or% internal
     classified ``\emph{\lh@internal}'' and only available to members of the Software
-    Assurance \& Security Research Team at The University of
-    Sheffield. Disclosure to third parties only after a
+    Assurance \& Security Research Team. Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% customer
     CUSTOMER.
