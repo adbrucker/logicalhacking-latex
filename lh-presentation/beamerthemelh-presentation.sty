@@ -25,6 +25,10 @@
 \setboolean{lh@title@light}{false}
 \DeclareOptionX{titlelight}{\setboolean{lh@title@light}{true}}
 % 
+\newboolean{lh@inverse}
+\setboolean{lh@inverse}{false}
+\DeclareOptionX{inverse}{\setboolean{lh@inverse}{true}}
+%
 \def\lh@classification@sel@default{5}
 \def\lh@classification@sel{5}
 \newcommand{\lh@CCBYNCND}{\href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{CC BY-NC-ND 4.0}}
@@ -194,6 +198,10 @@
 
 
 \usecolortheme{lh-core}
+\ifthenelse{\boolean{lh@inverse}}{%
+  \usecolortheme{lh-core-inverse}
+}{%
+}
 \ifthenelse{\boolean{lh@title@light}}{%
   \usecolortheme{lh-titlelight}
 }{%

@@ -15,6 +15,7 @@
 
 \DeclareOptionBeamer{classification}{\PassOptionsToPackage{classification=#1}{beamerthemelh-presentation}}
 \DeclareOptionBeamer{titlelight}{\PassOptionsToPackage{titlelight}{beamerthemelh-presentation}}
+\DeclareOptionBeamer{inverse}{\PassOptionsToPackage{inverse}{beamerthemelh-presentation}}
 
 \ProcessOptionsBeamer\relax
 
