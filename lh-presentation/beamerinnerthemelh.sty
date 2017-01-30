@@ -13,10 +13,51 @@
      [2016/11/01 v0.0  LaTeX presentation class implementing the cooperate design of LogicalHacking.com]
 
 \usepackage{transparent}
+\usepackage{tikz}
 \mode<presentation>
 
 \setbeamertemplate{sections/subsections in toc}[square]
 \setbeamertemplate{items}[square] % [circle]
+
+\setbeamertemplate{itemize item}{
+  \tikz{
+    \draw[fill=lhOrange,draw=none] (0, 0) rectangle(0.1, 0.1);
+    \draw[fill=lhOrange,draw=none] (0.1, 0.1) rectangle(0.2, 0.2);
+   \draw[fill=lhOrange,draw=none] (0, 0.2) rectangle(0.1, 0.3);
+  }
+}
+\ifthenelse{\boolean{lh@inverse}}{%
+\setbeamertemplate{itemize subitem}{
+  \tikz{
+   \draw[fill=lhLightGray,draw=none] (0, 0) rectangle(0.075, 0.075);
+    \draw[fill=lhLightGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+   \draw[fill=lhLightGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+  }
+}
+\setbeamertemplate{itemize subsubitem}{
+  \tikz{
+    \draw[fill=lhDarkGray,draw=none] (0, 0) rectangle(0.075, 0.075);
+    \draw[fill=lhDarkGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+    \draw[fill=lhDarkGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+  }
+}
+}{%
+\setbeamertemplate{itemize subitem}{
+  \tikz{
+   \draw[fill=lhDarkGray,draw=none] (0, 0) rectangle(0.075, 0.075);
+    \draw[fill=lhDarkGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+   \draw[fill=lhDarkGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+  }
+}
+\setbeamertemplate{itemize subsubitem}{
+  \tikz{
+    \draw[fill=lhLightGray,draw=none] (0, 0) rectangle(0.075, 0.075);
+    \draw[fill=lhLightGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+    \draw[fill=lhLightGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+  }
+}
+}
+
 
 \defbeamertemplate*{title page}{lh}[1][]
 {
