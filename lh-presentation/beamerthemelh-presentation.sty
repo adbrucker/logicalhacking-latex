@@ -18,6 +18,12 @@
 \usepackage{etoolbox}
 \usepackage{environ}
 
+
+
+%
+\newboolean{lh@title@light}
+\setboolean{lh@title@light}{false}
+\DeclareOptionX{titlelight}{\setboolean{lh@title@light}{true}}
 % 
 \def\lh@classification@sel@default{5}
 \def\lh@classification@sel{5}
@@ -86,11 +92,8 @@
   \fi%
 }
 
-
-
-
-\ProcessOptionsX
-%\ProcessOptionsBeamer
+\ProcessOptionsX\relax
+%\ProcessOptionsBeamer\relax
 %\ProcessOptions
 
 \newcommand{\lh@classification@text}[1]{%
@@ -190,7 +193,12 @@
 
 
 
-\usecolortheme{lh}
+\usecolortheme{lh-core}
+\ifthenelse{\boolean{lh@title@light}}{%
+  \usecolortheme{lh-titlelight}
+}{%
+  \usecolortheme{lh-titledark}
+}
 \useinnertheme{lh}
 \useoutertheme{lh}
 \usefonttheme{lh}

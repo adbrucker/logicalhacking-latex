@@ -43,24 +43,25 @@
   \mbox{}\vspace{-6mm}
   \begin{beamercolorbox}[ht=4mm,sep=.2cm,wd=\@tempdima]{titlerule}
   \end{beamercolorbox}
-  \mbox{}\vspace{-5mm}\transparent{.75}\mbox{}%
-  \begin{beamercolorbox}[ht=40mm,sep=.2cm,wd=\@tempdima]{titleframe}
+  \mbox{}\vspace{-5mm}\transparent{.80}\mbox{}%
+  \begin{beamercolorbox}[ht=42mm,sep=.2cm,center,wd=\@tempdima]{titleframe}
     \vspace{-2mm}%
     {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}%
     \ifx\insertsubtitle\@empty%
+      \vskip0.25em%
     \else%
       \vskip0.25em%
       {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
     \fi%
     \vbox{}
     \vfill
-     \begin{beamercolorbox}[sep=4pt,center,#1]{author}
-       \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
+     \begin{beamercolorbox}[sep=4pt,center,wd=1.1\@tempdima,#1]{author}
+     \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor
      \end{beamercolorbox}
-     \begin{beamercolorbox}[sep=4pt,center,#1]{institute}
+     \begin{beamercolorbox}[sep=4pt,center,wd=1.1\@tempdima,#1]{institute}
        \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute
      \end{beamercolorbox}
-    \begin{beamercolorbox}[sep=4pt,center,#1]{date}
+    \begin{beamercolorbox}[sep=4pt,center,wd=1.1\@tempdima,#1]{date}
       \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate
     \end{beamercolorbox}
   \end{beamercolorbox}
@@ -69,11 +70,11 @@
   \end{beamercolorbox}
     \vspace{1mm}
   \begin{beamercolorbox}[wd=\@tempdima,ignorebg]{white}
-    \ifx\inserttitlegraphic\@empty%
+    \ifthenelse{\boolean{lh@title@light}}{%
       \raisebox{-\fboxsep}{{\setlength{\fboxsep}{0pt}\lhcomLogoLight[width=42mm]}}%
-    \else%
+    }{%
       \raisebox{-\fboxsep}{{\setlength{\fboxsep}{0pt}\lhcomLogoDark[width=42mm]}}%
-    \fi%
+    }%
     \hfill%
     {\partnerLogo[height=4mm]}%
   \end{beamercolorbox}
