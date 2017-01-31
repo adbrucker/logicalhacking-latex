@@ -13,26 +13,28 @@
      [2016/11/01 v0.0  LaTeX presentation class implementing the cooperate design of LogicalHacking.com]
 
 \mode<presentation>
+  
+  \setbeamercolor{background canvas}{fg=lhBlack,bg=lhWhite}
 
   \setbeamercolor{structure}{fg=lhOrange}
-  \setbeamercolor{footer}{fg=white, bg=lhDarkGray}
+  \setbeamercolor{footer}{fg=lhWhite, bg=lhDarkGray}
   \setbeamercolor{part title}{parent=footer}
   
   \setbeamercolor{alerted text}{fg=lhOrange}
   
-  \setbeamercolor{title}{fg=white}
-  \setbeamercolor{subtitle}{fg=white}
-  \setbeamercolor{author}{fg=white}
-  \setbeamercolor{institute}{fg=white}
-  \setbeamercolor{date}{fg=white}
-  % \setbeamercolor{titleframe}{fg=black,bg=white}
-  \setbeamercolor{titleframe}{bg=black}
-  \setbeamercolor{titlerule}{bg=lhOrange,fg=white}
+  \setbeamercolor{title}{fg=lhWhite}
+  \setbeamercolor{subtitle}{fg=lhWhite}
+  \setbeamercolor{author}{fg=lhWhite}
+  \setbeamercolor{institute}{fg=lhWhite}
+  \setbeamercolor{date}{fg=lhWhite}
+  % \setbeamercolor{titleframe}{fg=lhBlack,bg=lhWhite}
+  \setbeamercolor{titleframe}{bg=lhBlack}
+  \setbeamercolor{titlerule}{bg=lhOrange,fg=lhWhite}
 
-  \setbeamercolor*{palette primary}{fg=lhDarkGray,bg=white}
-  \setbeamercolor*{palette secondary}{fg=white,bg=lhDarkGray}
-  \setbeamercolor*{palette tertiary}{fg=white,bg=lhLightGray}
-  \setbeamercolor*{palette quaternary}{fg=white,bg=black}
+  \setbeamercolor*{palette primary}{fg=lhDarkGray,bg=lhWhite}
+  \setbeamercolor*{palette secondary}{fg=lhWhite,bg=lhDarkGray}
+  \setbeamercolor*{palette tertiary}{fg=lhWhite,bg=lhLightGray}
+  \setbeamercolor*{palette quaternary}{fg=lhWhite,bg=lhBlack}
 
   \setbeamercolor{titlelike}{parent=palette primary}
   
@@ -40,9 +42,9 @@
   \setbeamercolor*{fine separation line}{}
 
   \setbeamercolor{block title}{use=structure,fg=lhOrange,bg=lhLightGray}
-  \setbeamercolor{block title alerted}{use=alerted text,fg=white,bg=lhOrange}
-  \setbeamercolor{block title example}{use=example text,fg=white,bg=lhDarkGray}
-  \setbeamercolor{block title example}{use=example text,fg=white,bg=lhDarkGray}
+  \setbeamercolor{block title alerted}{use=alerted text,fg=lhWhite,bg=lhOrange}
+  \setbeamercolor{block title example}{use=example text,fg=lhWhite,bg=lhDarkGray}
+  \setbeamercolor{block title example}{use=example text,fg=lhWhite,bg=lhDarkGray}
 
   \setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!10!bg}
   \setbeamercolor{block body alerted}{parent=normal text,use=block title alerted,bg=block title alerted.bg!10!bg}
