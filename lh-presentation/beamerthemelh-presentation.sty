@@ -18,9 +18,13 @@
 \usepackage{etoolbox}
 \usepackage{environ}
 
+\usepackage{fontawesome}
+\definecolor{linkedin}{RGB}{24,103,158}
+\definecolor{twitter}{RGB}{29,161,242}
+
 \newcommand{\titlevisual}[1]{\titlegraphic{\includegraphics[width=\paperwidth,height=\paperheight]{#1}}}
 
-
+\urlstyle{sf}
 %
 \newboolean{lh@title@light}
 \setboolean{lh@title@light}{false}
@@ -293,20 +297,66 @@
 \end{frame}
 \egroup}
 
+
+\def\lh@contactauthor{\insertshortauthor}
+\newcommand{\contactauthor}[1]{\gdef\lh@contactauthor{#1}}
+\def\lh@contactemail{}
+\newcommand{\contactemail}[1]{\gdef\lh@contactemail{#1}}
+\def\lh@contacttwitter{}
+\newcommand{\contacttwitter}[1]{\gdef\lh@contacttwitter{#1}}
+\def\lh@contactlinkedin{}
+\newcommand{\contactlinkedin}[1]{\gdef\lh@contactlinkedin{#1}}
+\def\lh@contactwww{}
+\newcommand{\contactwww}[1]{\gdef\lh@contactwww{#1}}
+\def\lh@contactblog{}
+\newcommand{\contactblog}[1]{\gdef\lh@contactblog{#1}}
+\def\lh@thanks{\huge \thanksMsg\\ \thanksQuestionsMsg}
+\newcommand{\thanksinfo}[1]{\gdef\lh@thanks{#1}}
+
 \newcommand{\ThanksFrame}[1][]{%
-  \begin{frame}[plain]
-  \huge
-  \begin{center}
-    \thanksMsg\\
-  \end{center}
-  \begin{center}
-    \large
-    \thanksQuestionsMsg
-  \end{center}
+  \@tempdima=\paperwidth%
+  \advance\@tempdima by -6mm%
+  \@tempdimb=\paperheight%
+  \advance\@tempdimb by -29mm%
+  
+\begin{frame}[plain]
+  \begin{beamercolorbox}[ht=1mm,sep=.1cm,wd=\@tempdima]{titlerule}
+  \end{beamercolorbox}
+  \mbox{}\vspace{-6mm}
+  \begin{beamercolorbox}[ht=4mm,sep=.2cm,wd=\@tempdima]{titlerule}
+  \end{beamercolorbox}
+%  \mbox{}\vspace{-5mm}\transparent{.80}\mbox{}%
+  \begin{beamercolorbox}[ht=.70\@tempdimb,sep=.2cm,center,dp=.3\@tempdimb,wd=\@tempdima]{}
+     \lh@thanks
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[ht=23mm,sep=.2cm,center,wd=\@tempdima]{footer}
+\begin{picture}(0,0)
+\put(5,-48){\href{https://logicalhacking.com}{\lhSmallLogoDark[width=7mm]}}
+\end{picture}
+  \raggedright
+  \rlap{\noindent\small\textbf{\,\,Contact:}}%
+  {\scriptsize
+    \hfill\begin{minipage}[t]{.45\@tempdima}\raggedleft
+      \hfill\lh@contactauthor\\
+      Department of Computer Science\\
+      University of Sheffield\\
+      Regent Court\\
+      211 Portobello St.\\
+      Sheffield S1 4DP, UK
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{.45\@tempdima}
+      \ifthenelse{\equal{\lh@contactemail}{}}{}{\faEnvelopeSquare~\href{mailto:\lh@contactemail}{\lh@contactemail}\\}
+      \ifthenelse{\equal{\lh@contacttwitter}{}}{}{\faTwitterSquare~\href{https://twitter.com/in/\lh@contacttwitter/}{@\lh@contacttwitter}\\}
+      \ifthenelse{\equal{\lh@contactlinkedin}{}}{}{\faLinkedinSquare~\url{\lh@contactlinkedin}\\}
+      \ifthenelse{\equal{\lh@contactwww}{}}{}{\faExternalLinkSquare~\url{\lh@contactwww}\\}
+      \ifthenelse{\equal{\lh@contactblog}{}}{}{\faRssSquare~\url{\lh@contactblog}}
+    \end{minipage}\hfill}
+\end{beamercolorbox}
 \end{frame}
 }
 
-\DeclareDocumentCommand{\PartFrame}{ O{red} O{white} m }{%
+\DeclareDocumentCommand{\PartFrame}{ O{red} O{lhWhite} m }{%
   \setbeamercolor{footer}{fg=#1, bg=#2}
   \bgroup
   \part{#3}
