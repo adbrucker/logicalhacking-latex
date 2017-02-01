@@ -330,11 +330,8 @@
      \lh@thanks
   \end{beamercolorbox}
   \begin{beamercolorbox}[ht=23mm,sep=.2cm,center,wd=\@tempdima]{footer}
-\begin{picture}(0,0)
-\put(5,-48){\href{https://logicalhacking.com}{\lhSmallLogoDark[width=7mm]}}
-\end{picture}
   \raggedright
-  \rlap{\noindent\small\textbf{\,\,Contact:}}%
+  \rlap{\noindent\small\textbf{\,\,\,\,Contact:}}%
   {\scriptsize
     \hfill\begin{minipage}[t]{.45\@tempdima}\raggedleft
       \hfill\lh@contactauthor\\
@@ -352,6 +349,11 @@
       \ifthenelse{\equal{\lh@contactwww}{}}{}{\faExternalLinkSquare~\url{\lh@contactwww}\\}
       \ifthenelse{\equal{\lh@contactblog}{}}{}{\faRssSquare~\url{\lh@contactblog}}
     \end{minipage}\hfill}
+\end{beamercolorbox}
+  \begin{beamercolorbox}[ht=0mm,sep=.2cm,wd=\@tempdima]{}
+{\setlength{\unitlength}{1mm}\begin{picture}(0,0)
+\put(0,4){\href{https://logicalhacking.com}{\lhSmallLogoDark[width=7mm]}}
+\end{picture}}
 \end{beamercolorbox}
 \end{frame}
 }
