@@ -16,6 +16,7 @@
 \usepackage{tikz}
 \mode<presentation>
 
+\newcommand{\vMaxPhantom}{\vphantom{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}}
 \setbeamertemplate{sections/subsections in toc}[square]
 \setbeamertemplate{items}[square] % [circle]
 
@@ -89,10 +90,11 @@
     \vspace{-2mm}%
     {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par}%
     \ifx\insertsubtitle\@empty%
-      \vskip0.25em%
+      \vskip0.75em%
+      {\usebeamerfont{subtitle}\vMaxPhantom\par}%
     \else%
-      \vskip0.25em%
-      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \vskip0.75em%
+      {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\vMaxPhantom\par}%
     \fi%
     \vbox{}
     \vfill
