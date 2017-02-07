@@ -46,7 +46,8 @@
 \newcommand{\lh@confidential}{Confidential}
 \newcommand{\lh@internal}{Internal}
 \newcommand{\lh@customer}{Customer}
-\newcommand{\lh@student}{Student}
+\newcommand{\lh@student}{Student\ifthenelse{\equal{\lh@classification@student@short}{}}%
+{}{~(\lh@classification@student@short)}}
 \newcommand{\lh@public}{Public}
 
 
@@ -150,10 +151,12 @@
     of the University of Sheffield and to business partners. Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% student
-    classified ``\emph{\lh@student}'' and only available to staff 
-    of the University of Sheffield and to a limited group of students
-    (e.g., that are registered for a specific module) of the
-    University of Sheffield.  Disclosure to third parties only after a
+    classified ``\emph{\lh@student}'' and only available to 
+    \ifthenelse{\equal{\lh@classification@student@long}{}}%
+    {staff of the University of Sheffield and to a limited group of students
+      (e.g., that are registered for a specific module) of the  University of Sheffield.}%
+     {students of the University of Sheffield that are registered to the module \lh@classification@student@long.}
+    Disclosure to third parties only after a
     confidentiality agreement has been signed.
   \or% public CC BY NC ND
      licensed under
@@ -312,6 +315,12 @@
 \newcommand{\contactblog}[1]{\gdef\lh@contactblog{#1}}
 \def\lh@thanks{\huge \thanksMsg\\ \thanksQuestionsMsg}
 \newcommand{\thanksinfo}[1]{\gdef\lh@thanks{#1}}
+
+\def\lh@classification@student@short{}
+\newcommand{\lectureshortname}[1]{\gdef\lh@classification@student@short{#1}}
+
+\def\lh@classification@student@long{}
+\newcommand{\lecturelongname}[1]{\gdef\lh@classification@student@long{#1}}
 
 \newcommand{\ThanksFrame}[1][]{%
   \@tempdima=\paperwidth%
