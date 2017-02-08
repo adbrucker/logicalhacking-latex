@@ -9,6 +9,9 @@
 %%   The 2-clause BSD-style license.
 %%
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\RequirePackage{etoolbox}
+\RequirePackage{graphicx}
+
 \ProvidesPackage{lh-lecture-presentation}
      [2017/02/08 v0.0  LaTeX style for lectures (add-on to lh-presentation)]
 
@@ -55,6 +58,19 @@
       \printendnotes
     \end{frame}}{}
 \end{bibunit}
+}
+
+
+\newcommand\appendtographicspath[1]{%
+  \gappto\Ginput@path{{#1}}%
+}
+\newcommand\prependtographicspath[1]{%
+  \gpreto\Ginput@path{{#1}}%
+}
+
+\newcommand{\includelecture}[2]{
+  \prependtographicspath{#1-#2/figures/}
+  \include{#1-#2/#2}
 }
 
 
