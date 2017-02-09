@@ -12,14 +12,18 @@
 \ProvidesPackage{beamercolorthemelh-titledark}
      [2016/11/01 v0.0  LaTeX presentation class implementing the cooperate design of LogicalHacking.com]
 
-\mode<presentation>
-
+\newcommand{\setbeamercolortitledark}{%
   \setbeamercolor{title}{fg=lhBlack}
   \setbeamercolor{subtitle}{fg=lhDarkGray}
   \setbeamercolor{author}{fg=lhBlack}
   \setbeamercolor{institute}{fg=lhBlack}
   \setbeamercolor{date}{fg=lhBlack}
   \setbeamercolor{titleframe}{fg=lhOrange,bg=lhWhite}
-  
+}
+
+\mode<presentation>
+
+  \setbeamercolortitledark
+
 \mode
 <all>

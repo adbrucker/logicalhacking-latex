@@ -210,10 +210,23 @@
   \usecolortheme{lh-core-inverse}
 }{%
 }
+
+\usecolortheme{lh-titlelight}
+\usecolortheme{lh-titledark}
+%
+\newcommand{\settitledark}{%
+  \setbeamercolortitledark%
+  \setboolean{lh@title@light}{false}%
+}
+\newcommand{\settitlelight}{%
+  \setbeamercolortitlelight%
+  \setboolean{lh@title@light}{true}%
+}
+%
 \ifthenelse{\boolean{lh@title@light}}{%
-  \usecolortheme{lh-titlelight}
+  \setbeamercolortitlelight%
 }{%
-  \usecolortheme{lh-titledark}
+  \setbeamercolortitledark%
 }
 \useinnertheme{lh}
 \useoutertheme{lh}
