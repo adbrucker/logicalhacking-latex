@@ -14,7 +14,7 @@
   followign the  cooperate design of LogicalHacking.com]
   
 \PassOptionsToClass{\CurrentOption}{scrartcl}
-\LoadClass[DIV11, 11pt,a4paper]{scrartcl}[]
+\LoadClass[abstracton,DIV11, 11pt,a4paper]{scrartcl}[]
 
 \DeclareOption{noanswer}       {\PassOptionsToPackage{noanswer}{exercise}}
 \DeclareOption{answeronly}     {\PassOptionsToPackage{answeronly}{exercise}}
