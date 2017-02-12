@@ -12,12 +12,19 @@
 \ProvidesClass{lh-exercise}%
   [2016/12/28 v0.0  LaTeX class for home work / exercise sheets
   followign the  cooperate design of LogicalHacking.com]
-  
+
 \PassOptionsToClass{\CurrentOption}{scrartcl}
 \LoadClass[abstracton,DIV11, 11pt,a4paper]{scrartcl}[]
 
-\DeclareOption{noanswer}       {\PassOptionsToPackage{noanswer}{exercise}}
-\DeclareOption{answeronly}     {\PassOptionsToPackage{answeronly}{exercise}}
+\RequirePackage{ifthen}
+
+\newboolean{lh@lecture@answers}
+\setboolean{lh@lecture@answers}{false}
+
+\DeclareOption{noanswer}       {\PassOptionsToPackage{noanswer}{exercise}%
+                                \setBoolean{lh@lecture@answers}{true}}
+\DeclareOption{answeronly}     {\PassOptionsToPackage{answeronly}{exercise}
+                                \setBoolean{lh@lecture@answers}{true}}
 \DeclareOption{noexercise}     {\PassOptionsToPackage{noexercise}{exercise}}
 \DeclareOption{exerciseonly}   {\PassOptionsToPackage{exerciseonly}{exercise}}
 \DeclareOption{outputnothing}  {\PassOptionsToPackage{outputnothing}{exercise}}
@@ -36,6 +43,7 @@
 \usepackage[some]{background}
 \usepackage{tikz}
 \usepackage{exercise}
+\usepackage{enumitem}
 \usepackage{hyperref}
 %
 \makeatletter
@@ -94,5 +102,17 @@
 \newcommand{\sidemark}[1]{\mbox{}\marginpar[\small\raggedleft\hspace{0pt}\textcolor{lhOrange}{#1}]{\small\raggedright\hspace{0pt}\textcolor{lhOrange}{#1}}}
 \newcommand{\key}[1]{#1\sidemark{#1}}
 
+
+% Basic implementation of multiple-choice-questions:
+\newcommand{\checkbox}{\faSquareO}
+\newlist{mcq}{enumerate}{3}
+\setlist[mcq]{label={\protect\checkbox\enspace\alph*}),before=\raggedright}
+
+\ifthenelse{\boolean{lh@lecture@answers}{true}}{%
+  \newcommand{\correct}  {\renewcommand{\checkbox}{\faCheckSquareO}\item}
+}{%
+  \newcommand{\correct}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item }
+}
+\newcommand{\incorrect}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item }
 
 \endinput
