@@ -17,6 +17,10 @@
 \LoadClass[abstracton,DIV11, 11pt,a4paper]{scrartcl}[]
 
 \RequirePackage{ifthen}
+\usepackage{xkeyval}
+
+\def\lh@cohort{}
+\define@key{PPExercise}{cohort}{\gdef\lh@cohort{#1}}
 
 \newboolean{lh@lecture@answers}
 \setboolean{lh@lecture@answers}{false}
@@ -33,7 +37,8 @@
 \DeclareOption{lastexercise}   {\PassOptionsToPackage{lastexercise}{exercise}}
 \DeclareOption{showlabel}      {\PassOptionsToPackage{showlabel}{exercise}}
 
-\ProcessOptions\relax
+%\ProcessOptions\relax
+\ProcessOptionsX\relax
 
 \usepackage[T1]{fontenc}
 \usepackage[default]{raleway}
@@ -95,8 +100,11 @@
 \def\DifficultyMarker{\faStar}
 \renewcommand{\ExerciseHeader}{%
   \noindent\bfseries\ExerciseName~%
-  \ExerciseHeaderNB~{\slshape\ExerciseHeaderTitle}~\ExerciseHeaderOrigin \hfill
-  \ifx\ExerciseHeaderDifficulty\@empty\else(\ExerciseHeaderDifficulty\kern-.5ex)\fi\\}
+  \ExerciseHeaderNB~{\slshape\ExerciseHeaderTitle}~\ExerciseHeaderOrigin
+  \hfill
+  \ifx\lh@cohort\@empty\else(\lh@cohort)\fi%
+  \ifx\ExerciseHeaderDifficulty\@empty\else\marginpar{\ExerciseHeaderDifficulty}%\kern-.5ex
+  \fi\\}
 \renewcommand{\AnswerHeader}{\bigskip\noindent\bfseries Answer to \ExerciseName~\ExerciseHeaderNB\\}
 
 \newcommand{\sidemark}[1]{\mbox{}\marginpar[\small\raggedleft\hspace{0pt}\textcolor{lhOrange}{#1}]{\small\raggedright\hspace{0pt}\textcolor{lhOrange}{#1}}}
