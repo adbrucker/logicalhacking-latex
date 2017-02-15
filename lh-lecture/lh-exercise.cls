@@ -26,7 +26,7 @@
 \setboolean{lh@lecture@answers}{false}
 
 \DeclareOption{noanswer}       {\PassOptionsToPackage{noanswer}{exercise}%
-                                \setBoolean{lh@lecture@answers}{true}}
+                                \setBoolean{lh@lecture@answers}{false}}
 \DeclareOption{answeronly}     {\PassOptionsToPackage{answeronly}{exercise}
                                 \setBoolean{lh@lecture@answers}{true}}
 \DeclareOption{noexercise}     {\PassOptionsToPackage{noexercise}{exercise}}
@@ -108,7 +108,7 @@
 \renewcommand{\AnswerHeader}{\bigskip\noindent\bfseries Answer to \ExerciseName~\ExerciseHeaderNB\\}
 
 \newcommand{\sidemark}[1]{\mbox{}\marginpar[\small\raggedleft\hspace{0pt}\textcolor{lhOrange}{#1}]{\small\raggedright\hspace{0pt}\textcolor{lhOrange}{#1}}}
-\newcommand{\key}[1]{#1\sidemark{#1}}
+\newcommand{\key}[1]{\emph{#1}\sidemark{#1}}
 
 
 % Basic implementation of multiple-choice-questions:
@@ -117,10 +117,10 @@
 \setlist[mcq]{label={\protect\checkbox\enspace\alph*}),before=\raggedright}
 
 \ifthenelse{\boolean{lh@lecture@answers}{true}}{%
-  \newcommand{\correct}  {\renewcommand{\checkbox}{\faCheckSquareO}\item}
+  \newcommand{\correct}{\renewcommand{\checkbox}{\faCheckSquareO}\item}
 }{%
-  \newcommand{\correct}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item }
+  \newcommand{\correct}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item}
 }
-\newcommand{\incorrect}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item }
+\newcommand{\incorrect}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item}
 
 \endinput
