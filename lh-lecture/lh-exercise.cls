@@ -76,8 +76,10 @@
     \draw (-0.5\paperwidth+15,0.5\paperheight-115) node [anchor=base west] {\lhcomLogoLight[width=.25\paperwidth]};
     \draw (0,0.5\paperheight-30) node {\textcolor{lhBlack}{\huge\bfseries\lh@lecture}};
     \draw (0,0.5\paperheight-53) node
-    {\textcolor{lhBlack}{\ifx\lh@sheetnumber\@emtpy\else Home Work
-        Sheet \fi\lh@sheetnumber}};
+    {\textcolor{lhBlack}{Home Work Sheet
+        \ifx\lh@sheetnumber\@emtpy\else\fi\lh@sheetnumber
+        \ifthenelse{\boolean{lh@lecture@answers}}{ (with Solutions)}{}
+      }};
     \draw (0,0.5\paperheight-70) node {\textcolor{lhBlack}{\Large\bfseries\lh@topic}};
     \draw (0.5\paperwidth-15,0.5\paperheight-115) node [anchor=base east]
     {\begin{minipage}[b]{.6\linewidth}
