@@ -17,32 +17,33 @@
 \LoadClass[abstracton,DIV11, 11pt,a4paper]{scrartcl}[]
 
 \RequirePackage{ifthen}
-\usepackage{xkeyval}
-
-\def\lh@cohort{}
-\define@key{PPExercise}{cohort}{\gdef\lh@cohort{#1}}
 
 \newboolean{lh@lecture@answers}
-\setboolean{lh@lecture@answers}{false}
+\setboolean{lh@lecture@answers}{true}
 
 \DeclareOption{noanswer}       {\PassOptionsToPackage{noanswer}{exercise}%
-                                \setBoolean{lh@lecture@answers}{false}}
-\DeclareOption{answeronly}     {\PassOptionsToPackage{answeronly}{exercise}
-                                \setBoolean{lh@lecture@answers}{true}}
+                                \setboolean{lh@lecture@answers}{false}}
+\DeclareOption{answeronly}     {\PassOptionsToPackage{answeronly}{exercise}%
+                                \setboolean{lh@lecture@answers}{true}}
 \DeclareOption{noexercise}     {\PassOptionsToPackage{noexercise}{exercise}}
-\DeclareOption{exerciseonly}   {\PassOptionsToPackage{exerciseonly}{exercise}}
+\DeclareOption{exerciseonly}   {\PassOptionsToPackage{exerciseonly}{exercise}%
+                                \setboolean{lh@lecture@answers}{false}}
 \DeclareOption{outputnothing}  {\PassOptionsToPackage{outputnothing}{exercise}}
 \DeclareOption{exercisedelayed}{\PassOptionsToPackage{exercisedelayed}{exercise}}
 \DeclareOption{answerdelayed}  {\PassOptionsToPackage{answerdelayed}{exercise}}
 \DeclareOption{lastexercise}   {\PassOptionsToPackage{lastexercise}{exercise}}
 \DeclareOption{showlabel}      {\PassOptionsToPackage{showlabel}{exercise}}
 
-%\ProcessOptions\relax
-\ProcessOptionsX\relax
+
+
+\ProcessOptions\relax
+%\ProcessOptionsX\relax
 
 \usepackage[T1]{fontenc}
 \usepackage[default]{raleway}
 \usepackage{fontawesome}
+
+\usepackage{xkeyval}
 
 \usepackage{lh-logo}
 \usepackage[some]{background}
@@ -116,11 +117,16 @@
 \newlist{mcq}{enumerate}{3}
 \setlist[mcq]{label={\protect\checkbox\enspace\alph*}),before=\raggedright}
 
-\ifthenelse{\boolean{lh@lecture@answers}{true}}{%
+\ifthenelse{\boolean{lh@lecture@answers}}{%
   \newcommand{\correct}{\renewcommand{\checkbox}{\faCheckSquareO}\item}
 }{%
   \newcommand{\correct}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item}
 }
 \newcommand{\incorrect}{\renewcommand{\checkbox}{\hphantom{\faCheckSquare0}\llap{\faSquareO}}\item}
+
+
+\def\lh@cohort{}
+\define@key{PPExercise}{cohort}{\gdef\lh@cohort{#1}}
+
 
 \endinput
