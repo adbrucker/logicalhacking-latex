@@ -41,8 +41,15 @@
 
 \usepackage[T1]{fontenc}
 \usepackage[default]{raleway}
+\usepackage{sfmath}
 \usepackage{fontawesome}
+\usepackage{lastpage}
+\usepackage{scrlayer-scrpage}
 
+\usepackage[numbers, sort&compress]{natbib}
+\usepackage{multicol}
+\usepackage{amsmath}
+\allowdisplaybreaks
 \usepackage{xkeyval}
 
 \usepackage{lh-logo}
@@ -130,5 +137,9 @@
 \def\lh@cohort{}
 \define@key{PPExercise}{cohort}{\gdef\lh@cohort{#1}}
 
-
+% default footer 
+\ifoot{\small\textnormal{\textcopyright~\the\year~\href{https://logicalhacking.com}{LogicalHacking.com}}}
+\cfoot{\small\textnormal{Student (COMx501) -- 2016/17}}
+\ofoot{\small\textnormal{Page \thepage\ of \pageref{LastPage}}}
+\pagestyle{scrheadings}
 \endinput
