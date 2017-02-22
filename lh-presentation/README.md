@@ -1,4 +1,4 @@
-# tuos-presentation
+# lh-presentation
 A LaTeX class (based on the [beamer class](https://www.ctan.org/pkg/beamer)) 
 that implements the cooperate style of the
 [Software Assurance & Security Research Team Sheffield](https://logialhacking.com).
