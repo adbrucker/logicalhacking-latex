@@ -4,6 +4,8 @@ Team](https://logicalhacking.com):
 
 * **lh-logo:** LaTeX style for using the logo of the [Software Assurance 
                & Security Research Team](https://logicalhacking.com).
+* **lh-presentation:** LaTeX package for presentations by members of the 
+               [Software Assurance & Security Research Team]]https://logicalhacking.com).
 
 ## License
 If not otherwise stated, all sub-projects are dual-licensed under a
