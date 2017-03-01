@@ -121,6 +121,9 @@
 \newcommand{\key}[1]{\emph{#1}\sidemark{#1}}
 
 
+\newcommand{\answer}[2]{\ifthenelse{\boolean{lh@lecture@answers}}{#1}{#2}}
+
+
 % Basic implementation of multiple-choice-questions:
 \newcommand{\checkbox}{\faSquareO}
 \newlist{mcq}{enumerate}{3}
