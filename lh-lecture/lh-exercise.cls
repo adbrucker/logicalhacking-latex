@@ -20,6 +20,8 @@
 
 \newboolean{lh@lecture@answers}
 \setboolean{lh@lecture@answers}{true}
+\newboolean{lh@lecture@newpage}
+\setboolean{lh@lecture@newpage}{false}
 
 \DeclareOption{noanswer}       {\PassOptionsToPackage{noanswer}{exercise}%
                                 \setboolean{lh@lecture@answers}{false}}
@@ -33,6 +35,7 @@
 \DeclareOption{answerdelayed}  {\PassOptionsToPackage{answerdelayed}{exercise}}
 \DeclareOption{lastexercise}   {\PassOptionsToPackage{lastexercise}{exercise}}
 \DeclareOption{showlabel}      {\PassOptionsToPackage{showlabel}{exercise}}
+\DeclareOption{newpage}{\setboolean{lh@lecture@newpage}{true}}
 
 
 
@@ -57,6 +60,7 @@
 \usepackage{tikz}
 \usepackage{exercise}
 \usepackage{enumitem}
+\usepackage{etoolbox}
 \usepackage{hyperref}
 %
 \makeatletter
@@ -145,4 +149,14 @@
 \cfoot{\small\textnormal{Student (COMx501) -- 2016/17}}
 \ofoot{\small\textnormal{Page \thepage\ of \pageref{LastPage}}}
 \pagestyle{scrheadings}
+
+
+\ifthenelse{\boolean{lh@lecture@newpage}}{%
+  \AtBeginEnvironment{Exercise}{\clearpage}%
+  \AtEndEnvironment{Exercise}{\clearpage}%
+  \AtBeginEnvironment{Answer}{\clearpage}%
+  \AtEndEnvironment{Answer}{\clearpage}%
+}{}
+
+
 \endinput
