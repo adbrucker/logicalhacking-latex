@@ -77,6 +77,11 @@
 \def\lh@sheetnumber{}
 \newcommand{\sheetnumber}[1]{\gdef\lh@sheetnumber{#1}}
 
+\def\lh@sheettype{Home Work Sheet}
+\newcommand{\sheettype}[1]{\gdef\lh@sheettype{#1}}
+
+
+
 \backgroundsetup{
   scale=1,
   angle=0,
@@ -87,7 +92,7 @@
     \draw (-0.5\paperwidth+15,0.5\paperheight-115) node [anchor=base west] {\lhcomLogoLight[width=.25\paperwidth]};
     \draw (0,0.5\paperheight-30) node {\textcolor{lhBlack}{\huge\bfseries\lh@lecture}};
     \draw (0,0.5\paperheight-53) node
-    {\textcolor{lhBlack}{Home Work Sheet
+    {\textcolor{lhBlack}{\lh@sheettype{}
         \ifx\lh@sheetnumber\@emtpy\else\fi\lh@sheetnumber
         \ifthenelse{\boolean{lh@lecture@answers}}{ (with Solutions)}{}
       }};
