@@ -6,6 +6,8 @@ Team](https://logicalhacking.com):
                & Security Research Team](https://logicalhacking.com).
 * **lh-presentation:** LaTeX package for presentations by members of the 
                [Software Assurance & Security Research Team](https://logicalhacking.com).
+* **lh-poster:** LaTeX package for posters by member of the 
+               [Software Assurance & Security Research Team](https://logicalhacking.com).
 * **lh-lecture:** Various LaTeX packages for teaching related material (lecture slides, 
                homework).
 
