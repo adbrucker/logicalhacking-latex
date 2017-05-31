@@ -15,8 +15,10 @@
 \usepackage{ifthen}
 \newboolean{lh@framed@rounded}
 \setboolean{lh@framed@rounded}{false}
-
 %\setboolean{lh@framed@rounded}{true}
+
+\newlength{\lh@frame@linewidth}
+\setlength{\lh@frame@linewidth}{1pt}
 
 
 \newcommand\beamerboxesframed[2][]{%
@@ -62,6 +64,7 @@
   \bmb@dimb=\bmb@temp\advance\bmb@dimb by4bp%
   \hbox{%
     \begin{pgfpicture}{0bp}{+-\ht\bmb@box}{0bp}{+-\ht\bmb@box}
+      \pgfsetlinewidth{\lh@frame@linewidth}
       \ifdim\wd\bmb@box=0pt%
         \color{lower.bg}%
       \else%
@@ -123,6 +126,7 @@
   \bmb@dimb=\bmb@temp\advance\bmb@dimb by4bp%
   \hbox{%
     \begin{pgfpicture}{0bp}{0bp}{0bp}{0bp}
+      \pgfsetlinewidth{\lh@frame@linewidth}
       \unhbox\bmb@colorbox%
       \pgfpathmoveto{\pgfpoint{-4bp}{\ht\bmb@box}}
       \pgfpathlineto{\pgfpoint{-4bp}{1bp}}
