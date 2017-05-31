@@ -18,8 +18,9 @@
 %\setboolean{lh@framed@rounded}{true}
 
 \newlength{\lh@frame@linewidth}
-\setlength{\lh@frame@linewidth}{1pt}
+\setlength{\lh@frame@linewidth}{2pt}
 
+\newcommand{\setlhframedlinewidth}[1]{\setlength{\lh@frame@linewidth}{#1}}
 
 \newcommand\beamerboxesframed[2][]{%
   \global\let\beamer@firstlineitemizeunskip=\relax%
