@@ -19,8 +19,15 @@
 
 \newlength{\lh@frame@linewidth}
 \setlength{\lh@frame@linewidth}{2pt}
-
 \newcommand{\setlhframedlinewidth}[1]{\setlength{\lh@frame@linewidth}{#1}}
+
+\newlength{\lh@frame@margin}
+\setlength{\lh@frame@margin}{3pt}
+\newcommand{\setlhframemargin}[1]{\setlength{\lh@frame@margin}{#1}}
+
+\newlength{\lh@bmb@width}
+
+
 
 \newcommand\beamerboxesframed[2][]{%
   \global\let\beamer@firstlineitemizeunskip=\relax%
@@ -40,12 +47,20 @@
   %
   % Typeset head
   %
+\lh@bmb@width=\bmb@width%
+\advance\lh@bmb@width-\lh@frame@margin%
+\advance\lh@bmb@width-\lh@frame@margin%
   \vskip4bp
-  \setbox\bmb@box=\hbox{%
-    \begin{minipage}[b]{\bmb@width}%
+  \setbox\bmb@box=\hbox{#2}%
+  \ifdim\wd\bmb@box=0pt%
+  \relax%
+  \else
+    \setbox\bmb@box=\hbox{%
+    \hspace{\lh@frame@margin}\begin{minipage}[b]{\lh@bmb@width}%
       \usebeamercolor[fg]{\bmb@upper}%
-      #2%
+        {\vskip\lh@frame@margin}#2{\vskip\lh@frame@margin}%
     \end{minipage}}%
+  \fi%
   \ifdim\wd\bmb@box=0pt%
     \setbox\bmb@box=\hbox{}%
     \ht\bmb@box=0pt%
@@ -106,20 +121,21 @@
   \fi%
   \nointerlineskip%
   \setbox\bmb@colorbox=\hbox{{\pgfpicturetrue\pgfsetcolor{lower.bg}}}%
-  \setbox\bmb@box=\hbox\bgroup\begin{minipage}[b]{\bmb@width}%
-    \vskip2pt%
+  \setbox\bmb@box=\hbox\bgroup\hspace{\lh@frame@margin}\begin{minipage}[b]{\lh@bmb@width}%
     \usebeamercolor[fg]{\bmb@lower}%
     \colorlet{beamerstructure}{upper.bg}%
+    {\smallskip\vskip\lh@frame@margin}%
     \colorlet{structure}{upper.bg}%
     %\color{.}%
 }
 
 
 \def\endbeamerboxesframed{%
+  {\vskip\lh@frame@margin}%
   \end{minipage}\egroup%
   \wd\bmb@box=\bmb@width%
   \bmb@temp=\dp\bmb@box%
-  \advance\bmb@temp by.5pt%
+  \advance\bmb@temp by\lh@frame@margin%
   \setbox\bmb@box=\hbox{\raise\bmb@temp\hbox{\box\bmb@box}}%
   \dp\bmb@box=0pt%
   \bmb@temp=\wd\bmb@box%
