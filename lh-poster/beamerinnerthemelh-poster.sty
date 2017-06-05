@@ -18,39 +18,39 @@
 
 \setbeamertemplate{itemize item}{
   \tikz{
-    \draw[fill=lhOrange,draw=none] (0, 0) rectangle(0.1, 0.1);
-    \draw[fill=lhOrange,draw=none] (0.1, 0.1) rectangle(0.2, 0.2);
-   \draw[fill=lhOrange,draw=none] (0, 0.2) rectangle(0.1, 0.3);
+    \draw[fill=lhOrange,draw=none] (0, 0) rectangle(0.2, 0.2);
+    \draw[fill=lhOrange,draw=none] (0.2, 0.2) rectangle(0.4, 0.4);
+   \draw[fill=lhOrange,draw=none] (0, 0.4) rectangle(0.2, 0.6);
   }
 }
 \ifthenelse{\boolean{lh@inverse}}{%
 \setbeamertemplate{itemize subitem}{
   \tikz{
-   \draw[fill=lhLightGray,draw=none] (0, 0) rectangle(0.075, 0.075);
-    \draw[fill=lhLightGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
-   \draw[fill=lhLightGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+   \draw[fill=lhLightGray,draw=none] (0, 0) rectangle(0.150, 0.150);
+    \draw[fill=lhLightGray,draw=none] (0.150, 0.150) rectangle(0.3, 0.3);
+   \draw[fill=lhLightGray,draw=none] (0, 0.3) rectangle(0.075, 0.45);
   }
 }
 \setbeamertemplate{itemize subsubitem}{
   \tikz{
-    \draw[fill=lhDarkGray,draw=none] (0, 0) rectangle(0.075, 0.075);
-    \draw[fill=lhDarkGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
-    \draw[fill=lhDarkGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+    \draw[fill=lhDarkGray,draw=none] (0, 0) rectangle(0.15, 0.15);
+    \draw[fill=lhDarkGray,draw=none] (0.15, 0.15) rectangle(0.3, 0.3);
+    \draw[fill=lhDarkGray,draw=none] (0, 0.3) rectangle(0.15, 0.45);
   }
 }
 }{%
 \setbeamertemplate{itemize subitem}{
   \tikz{
-   \draw[fill=lhDarkGray,draw=none] (0, 0) rectangle(0.075, 0.075);
-    \draw[fill=lhDarkGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
-   \draw[fill=lhDarkGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+   \draw[fill=lhDarkGray,draw=none] (0, 0) rectangle(0.15, 0.15);
+    \draw[fill=lhDarkGray,draw=none] (0.15, 0.15) rectangle(0.3, 0.3);
+   \draw[fill=lhDarkGray,draw=none] (0, 0.3) rectangle(0.15, 0.45);
   }
 }
 \setbeamertemplate{itemize subsubitem}{
   \tikz{
-    \draw[fill=lhLightGray,draw=none] (0, 0) rectangle(0.075, 0.075);
-    \draw[fill=lhLightGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
-    \draw[fill=lhLightGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+    \draw[fill=lhLightGray,draw=none] (0, 0) rectangle(0.15, 0.15);
+    \draw[fill=lhLightGray,draw=none] (0.15, 0.15) rectangle(0.3, 0.3);
+    \draw[fill=lhLightGray,draw=none] (0, 0.3) rectangle(0.15, 0.45);
   }
 }
 }
