@@ -13,7 +13,8 @@
   [2017/04/14 v0.0  LaTeX poster class implementing the cooperate design of LogicalHacking.com]
 \RequirePackage{ifthen}
 \LoadClassWithOptions{beamer}[]
-\ProcessOptions\relax
+\DeclareOptionBeamer{inverse}{\PassOptionsToPackage{inverse}{beamerthemelh-poster}}
+\ProcessOptionsBeamer\relax
 \usetheme{lh-poster}
 \usepackage{beamerposter}
 \endinput

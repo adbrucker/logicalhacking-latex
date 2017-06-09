@@ -14,8 +14,12 @@
 
 \mode<presentation>
 \ifthenelse{\boolean{lh@inverse}}{%
-  \setbeamercolor{block title}{fg=white bg=lhOrange}
+  \setbeamercolor{headline}{fg=lhWhite, bg=lhDarkGray}
+  \setbeamercolor{block title}{fg=white, bg=lhOrange}
   \setbeamercolor{block body}{fg=lhCyanDark, bg=white}
+  \setbeamercolor{item}{parent=local structure,fg=lhOrange,bg=lhDarkGray}
+  \setbeamercolor{subitem}{parent=item, fg=lhDarkGray}
+  \setbeamercolor{subsubitem}{parent=subitem,fg=lhLightGray}
 }{
   \setbeamercolor{headline}{fg=lhWhite, bg=lhDarkGray}
   \setbeamercolor{block title}{fg=lhOrange, bg=lhBlack}

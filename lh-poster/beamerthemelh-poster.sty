@@ -11,6 +11,10 @@
 
 \ProvidesPackage{beamerthemelh-poster}
    [2017/04/14 v0.0  LaTeX poster class implementing the cooperate design of LogicalHacking.com]
+
+\DeclareOptionBeamer{inverse}{\PassOptionsToPackage{inverse}{beamerthemelh-presentation}}
+\ProcessOptionsBeamer\relax
+
 \usetheme{lh-presentation}
 
 \usefonttheme{lh-poster}
@@ -41,11 +45,11 @@
         \begin{tikzpicture}[overlay,remember picture]
           \node[anchor=north west,yshift=-3.7cm,xshift=4cm]
           at (current page.north west) {
-            \ifthenelse{\boolean{lh@inverse}}{%
-              \lhLogoLight[height=\logoheight]
-            }{
+%            \ifthenelse{\boolean{lh@inverse}}{%
+%              \lhLogoLight[height=\logoheight]
+%            }{
               \lhLogoDark[height=\logoheight]
-            }
+%            }
           };
         \end{tikzpicture}
       \end{minipage}%
