@@ -10,6 +10,8 @@ Team](https://logicalhacking.com):
                [Software Assurance & Security Research Team](https://logicalhacking.com).
 * **lh-lecture:** Various LaTeX packages for teaching related material (lecture slides, 
                homework).
+* **lh-businesscard:** LaTeX class for creating business cards for members of the 
+               [Software Assurance & Security Research Team](https://logicalhacking.com).
 
 ## License
 If not otherwise stated, all sub-projects are dual-licensed under a
