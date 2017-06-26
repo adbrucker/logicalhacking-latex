@@ -4,12 +4,12 @@ Team](https://logicalhacking.com):
 
 * **lh-logo:** LaTeX style for using the logo of the [Software Assurance 
                & Security Research Team](https://logicalhacking.com).
-* **lh-presentation:** LaTeX package for presentations by members of the 
+* **lh-presentation:** LaTeX package for presentations given by members of the 
                [Software Assurance & Security Research Team](https://logicalhacking.com).
-* **lh-poster:** LaTeX package for posters by member of the 
+* **lh-poster:** LaTeX package for posters presented by member of the 
                [Software Assurance & Security Research Team](https://logicalhacking.com).
 * **lh-lecture:** Various LaTeX packages for teaching related material (lecture slides, 
-               homework).
+               problem sheets, etc.).
 * **lh-businesscard:** LaTeX class for creating business cards for members of the 
                [Software Assurance & Security Research Team](https://logicalhacking.com).
 
