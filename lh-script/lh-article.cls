@@ -16,8 +16,7 @@
 
 
 \PassOptionsToClass{\CurrentOption}{scrartcl}
-\LoadClass[DIV12, abstract=on, 11pt,a4paper]{scrartcl}
-
+\LoadClass[twoside=semi,DIV=calc,abstract=on, 11pt, a4paper]{scrartcl}
 
 \ProcessOptions\relax
 
@@ -52,6 +51,8 @@
 \usepackage{etoolbox}
 \usepackage{hyperref}
 \urlstyle{sf}
+
+\addtokomafont{date}{\small}
 
 \backgroundsetup{
   scale=1,
