@@ -34,7 +34,7 @@ In addition, the style defines the two colors `lhOrange`, `lhDarkGray`, and `lhL
 
 ## License
 The LaTeX style is dual-licensed under a 2-clause BSD-style license and/or 
-the LPPL version 1 or any later version. 
+the LPPL version 1.3c or (at your opinion) any later version. 
 
 Note that the logos are licensed under the more restrictive 
 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). You are free to 
