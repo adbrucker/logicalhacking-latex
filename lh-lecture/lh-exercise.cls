@@ -4,10 +4,11 @@
 %%   This program can be redistributed and/or modified under the terms
 %%   of the LaTeX Project Public License Distributed from CTAN
 %%   archives in directory macros/latex/base/lppl.txt; either
-%%   version 1 of the License, or any later version.
+%%   version 1.3c of the License, or (at your opinion) any later version.
 %%   OR
 %%   The 2-clause BSD-style license.
 %%
+%%   SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesClass{lh-exercise}%
   [2016/12/28 v0.0  LaTeX class for home work / exercise sheets
@@ -68,6 +69,8 @@
 \newcommand{\handindate}[1]{\gdef\lh@handin{#1}}
 \def\lh@discusion{}
 \newcommand{\discussiondate}[1]{\gdef\lh@discussion{#1}}
+\def\lh@lastupdate{}
+\newcommand{\lastupdatedate}[1]{\gdef\lh@lastupdate{#1}}
 \def\lh@lecture{}
 \newcommand{\lecture}[1]{\gdef\lh@lecture{#1}}
 \def\lh@academicyear{}
@@ -101,6 +104,9 @@
     {\begin{minipage}[b]{.6\linewidth}
     \flushright\small
     \textbf{Academic year:} \lh@academicyear\\
+     \ifx\lh@lastupdate\@empty\else%
+       \textbf{Last upate:} \lh@lastupdate\\
+     \fi
      \ifx\lh@handin\@empty\else%
        \textbf{Hand-in date:} \lh@handin\\
       \fi%
