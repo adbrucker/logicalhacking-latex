@@ -1,4 +1,5 @@
 # tuos-lecture
+
 A family of LaTeX classes for lecture material that follow the cooperate style of the
 [Software Assurance & Security Research Team Sheffield](https://logialhacking.com).
 
@@ -11,9 +12,13 @@ A family of LaTeX classes for lecture material that follow the cooperate style o
                  including model solutions. 
 
 ## Installation 
+
 * Copy the various `*.sty` and `*.cls` files into your `texmf` tree. 
 
 ## License
+
 This project is dual-licensed under a 2-clause BSD-style license and/or 
 the LPPL version 1.3c or (at your opinion) any later version. 
+
+SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
 
