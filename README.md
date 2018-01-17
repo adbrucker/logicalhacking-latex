@@ -18,5 +18,9 @@ If not otherwise stated, all sub-projects are dual-licensed under a
 2-clause BSD-style license and/or the LPPL version 1.3c or (at your 
 opinion) any later version.
 
-The LogicalHacking logos in the directory [`lh-logo/logo/`](lh-logo/logo/) are licensed under the
+The LogicalHacking logos in the directory [`lh-logo/logo/`](lh-logo/logo/) 
+are licensed under the
 [Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/).
+
+SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
+
