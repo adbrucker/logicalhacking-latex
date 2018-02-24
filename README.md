@@ -24,3 +24,9 @@ are licensed under the
 
 SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
 
+
+## Master Repository
+
+The master git repository for this project is hosted by the [Software
+Assurance & Security Research Team](https://logicalhacking.com) at
+https://git.logicalhacking.com/adbrucker/logicalhacking-latex
