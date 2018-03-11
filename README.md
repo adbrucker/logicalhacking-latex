@@ -1,4 +1,5 @@
 # logicalhacking-latex
+
 Various LaTeX templates for [Software Assurance & Security Research 
 Team](https://logicalhacking.com):
 
@@ -14,6 +15,7 @@ Team](https://logicalhacking.com):
                [Software Assurance & Security Research Team](https://logicalhacking.com).
 
 ## License
+
 If not otherwise stated, all sub-projects are dual-licensed under a
 2-clause BSD-style license and/or the LPPL version 1.3c or (at your 
 opinion) any later version.
@@ -23,7 +25,6 @@ are licensed under the
 [Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/).
 
 SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
-
 
 ## Master Repository
 
