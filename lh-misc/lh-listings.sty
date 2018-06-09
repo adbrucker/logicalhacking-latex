@@ -1,0 +1,201 @@
+%% Copyright (C) 2017-2018 Achim D. Brucker, https://www.brucker.ch
+%%
+%% License:
+%%   This program can be redistributed and/or modified under the terms
+%%   of the LaTeX Project Public License Distributed from CTAN
+%%   archives in directory macros/latex/base/lppl.txt; either
+%%   version 1.3c of the License, or (at your opinion) any later version.
+%%   OR
+%%   The 2-clause BSD-style license.
+%%
+%%   SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lh-listings}
+   [2016/09/10 v0.0 The LogicalHacking Listings Style.]
+\RequirePackage{listings}
+
+\ProcessOptions\relax
+
+\lstloadlanguages{Java, C, HTML, OCL, TeX, SH, Ruby, SQL}
+
+
+
+\newenvironment{btHighlight}[1][]
+{\begingroup\tikzset{bt@Highlight@par/.style={#1}}\begin{lrbox}{\@tempboxa}}
+{\end{lrbox}\bt@HL@box[bt@Highlight@par]{\@tempboxa}\endgroup}
+
+\newcommand\btHL[1][]{%
+  \begin{btHighlight}[#1]\bgroup\aftergroup\bt@HL@endenv%
+}
+\def\bt@HL@endenv{%
+  \end{btHighlight}%
+  \egroup
+}
+\newcommand{\bt@HL@box}[2][]{%
+  \tikz[#1]{%
+    \pgfpathrectangle{\pgfpoint{1pt}{0pt}}{\pgfpoint{\wd #2}{\ht #2}}%
+    \pgfusepath{use as bounding box}%
+    \node[anchor=base west, fill=orange!30,outer sep=0pt,inner xsep=1pt, inner ysep=0pt, rounded corners=3pt, minimum height=\ht\strutbox+1pt,#1]{\raisebox{1pt}{\strut}\strut\usebox{#2}};
+  }%
+}
+
+
+
+
+\lstdefinestyle{sh}{language=sh,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{blue},
+  ndkeywordstyle=\color{blue},
+}
+\lstdefinestyle{displaysh}{style=sh,
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{black!4}, frame=lines,
+  framexleftmargin=5pt}%
+
+\lstnewenvironment{sh}[1][]{\lstset{style=displaysh, #1}}{}
+\def\inlinesh{\lstinline[style=sh, columns=fullflexible]}
+
+\lstdefinestyle{java}{language=Java,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{blue},
+  ndkeywordstyle=\color{blue},
+  moredelim=**[is][{\btHL[fill=green!30,draw=red,dashed,thin]}]{@}{@}
+}
+\lstdefinestyle{displayjava}{style=java,
+                basicstyle=\ttfamily\footnotesize,
+                backgroundcolor=\color{black!2}, frame=lines}%
+
+\lstnewenvironment{java}[1][]{\lstset{style=displayjava, #1}}{}
+\def\inlinejava{\lstinline[style=java, columns=fullflexible]}
+
+\lstdefinestyle{ruby}{language=Ruby,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{blue},
+  ndkeywordstyle=\color{blue},
+}
+\lstdefinestyle{displayruby}{style=ruby,
+                basicstyle=\ttfamily\footnotesize,
+                backgroundcolor=\color{black!2}, frame=lines}%
+
+\lstnewenvironment{ruby}[1][]{\lstset{style=displayruby, #1}}{}
+\def\inlineruby{\lstinline[style=ruby, columns=fullflexible]}
+
+\lstdefinestyle{sql}{language=SQL,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{blue},
+  ndkeywordstyle=\color{blue},
+}
+\lstdefinestyle{displaysql}{style=sql,
+                basicstyle=\ttfamily\footnotesize,
+                backgroundcolor=\color{black!2}, frame=lines}%
+
+\lstnewenvironment{sql}[1][]{\lstset{style=displaysql, #1}}{}
+\def\inlinesql{\lstinline[style=sql, columns=fullflexible]}
+
+\lstdefinestyle{c}{language=C,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{lhOrange},
+  ndkeywordstyle=\color{lhCyan},
+}
+
+\lstdefinestyle{displayc}{style=c,
+                basicstyle=\ttfamily\footnotesize,
+                backgroundcolor=\color{black!4}, frame=lines,
+                numbers=left, numberstyle=\tiny,framexleftmargin=5pt}%
+
+\lstnewenvironment{C}[1][]{\lstset{style=displayc, #1}}{}
+\def\inlineC{\lstinline[style=c, columns=fullflexible]}
+
+
+\lstdefinestyle{ltx}{language=[LaTeX]TeX,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{blue},
+  ndkeywordstyle=\color{blue},
+}
+\lstdefinestyle{displayltx}{style=ltx,
+                basicstyle=\ttfamily\footnotesize,
+                backgroundcolor=\color{black!2}, frame=lines}%
+
+\lstnewenvironment{ltx}[1][]{\lstset{style=displayltx, #1}}{}
+\def\inlineltx{\lstinline[style=ltx, columns=fullflexible]}
+
+
+\lstdefinestyle{html}{language=XML,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{blue},
+  ndkeywordstyle=\color{blue},
+}
+\lstdefinestyle{displayhtml}{style=html,
+                floatplacement={tbp}, captionpos=b, framexleftmargin=0pt,
+                basicstyle=\ttfamily\scriptsize,
+                backgroundcolor=\color{black!2}, frame=lines,
+                % numbers=left, numberstyle=\tiny, stepnumber=5
+              }
+
+\lstnewenvironment{html}[1][]{\lstset{style=displayhtml, #1}}{}
+\def\inlinehtml{\lstinline[style=html, columns=fullflexible]}
+
+\lstdefinelanguage{AnB}{
+  keywords={Protocol, Types, Agent, Number, Function, Knowledge, Actions,
+  Goals, Symmetric_key},
+  keywordstyle=\color{lhOrange},
+  ndkeywords={inv},
+  ndkeywordstyle=\color{lhCyan},
+  %identifierstyle=\color{black},
+  sensitive=false,
+  escapeinside={\%*}{*)},
+  comment=[l]{\#},
+  %morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  %stringstyle=\color{red}\ttfamily,
+  %morestring=[b]',
+  %morestring=[b]"
+}
+
+\lstdefinestyle{AnB}{language=AnB,
+  basicstyle=\small\ttfamily,
+}
+\lstnewenvironment{AnB}[1][]{\lstset{style=AnB, #1}}{}
+\def\inlineAnB{\lstinline[style=AnB, columns=fullflexible]}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinestyle{js}{language=JavaScript,
+  basicstyle=\ttfamily,
+  commentstyle=\itshape,
+  keywordstyle=\color{blue},
+  ndkeywordstyle=\color{blue},
+  moredelim=**[is][{\btHL[fill=green!30,draw=red,dashed,thin]}]{@}{@},
+}
+
+\lstdefinestyle{displayjs}{style=js,
+                floatplacement={tbp}, captionpos=b, framexleftmargin=0pt,
+                basicstyle=\ttfamily\scriptsize,
+                backgroundcolor=\color{black!2}, frame=lines,
+                % numbers=left, numberstyle=\tiny, stepnumber=5
+              }
+
+\lstnewenvironment{js}[1][]{\lstset{style=displayjs, #1}}{}
+\def\inlinejs{\lstinline[style=js, columns=fullflexible]}
+
+\endinput
