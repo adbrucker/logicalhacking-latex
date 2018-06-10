@@ -13,6 +13,8 @@ Team](https://logicalhacking.com):
                problem sheets, etc.).
 * **lh-businesscard:** LaTeX class for creating business cards for members of the 
                [Software Assurance & Security Research Team](https://logicalhacking.com).
+* **lh-misc:** Configurations for various LaTeX packages (e.g., listings) to match the 
+               layout of the [Software Assurance & Security Research Team](https://logicalhacking.com).
 
 ## License
 
