@@ -43,7 +43,8 @@
     \advance\@tempdima by -6mm%
     \leavevmode%
     \vspace{-.2cm}%
-    \centerline{\colorbox{lhOrange}{%
+    \centerline{\setlength{\fboxsep}{2.25pt}
+      \colorbox{lhOrange}{%
     \parbox{\@tempdima}{\mbox{}\hfill\mbox{}}}}%
     \vskip0pt%
   }
@@ -53,7 +54,7 @@
     \advance\@tempdima by -6mm
     \leavevmode%
     \centerline{%
-    \usebeamercolor{footer}{
+    \usebeamercolor{footer}{\setlength{\fboxsep}{2.25pt}
     \colorbox{bg}{%
       \parbox{\@tempdima}{%\mbox{}\\[.0005cm]  
       \mbox{}\quad \textcolor{fg}{\tiny\bfseries \textcopyright~\the\year{} \href{https://logicalhacking.com}{LogicalHacking.com}. \hfill\hfill 
