@@ -72,20 +72,20 @@
   }
 
   \newdimen\beamer@headheight
-  \beamer@headheight=2.1\baselineskip
+  \beamer@headheight=1.7\baselineskip
   \defbeamertemplate*{frametitle}{lh}[1][left]{
      \@tempdima=\textwidth%
     \usebeamerfont{frametitle}%
     \vbox to \beamer@headheight{%
-      \vskip.6em%
+      \vskip.8em%
       \vfil%
       % 
       \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
-      \strut\insertframetitle\strut\par%
+      \strut\hspace{2mm}\insertframetitle\strut\par%
      {%
        \ifx\insertframesubtitle\@empty%
        \else%
-       {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+       {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\hspace{2mm}\insertframesubtitle\strut\par}%
        \fi
      }%
       %
