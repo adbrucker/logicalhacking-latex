@@ -339,26 +339,30 @@
 \def\lh@classification@student@long{}
 \newcommand{\lecturelongname}[1]{\gdef\lh@classification@student@long{#1}}
 
-\newcommand{\ThanksFrame}[1][]{%
+\newcommand{\ContactFrame}[1]{%
   \@tempdima=\paperwidth%
   \advance\@tempdima by -6mm%
   \@tempdimb=\paperheight%
-  \advance\@tempdimb by -29mm%
+%  \advance\@tempdimb by -26mm%
+  \advance\@tempdimb by -\baselineskip%
+  \advance\@tempdimb by -\baselineskip%
+  \advance\@tempdimb by -\baselineskip%
+  \advance\@tempdimb by -\baselineskip%
+  \advance\@tempdimb by -\baselineskip%
+  \advance\@tempdimb by -2mm%
   
 \begin{frame}[plain]
-  \begin{beamercolorbox}[ht=1mm,sep=.1cm,wd=\@tempdima]{titlerule}
+  \begin{beamercolorbox}[ht=3mm,sep=0cm,wd=\@tempdima]{titlerule}
   \end{beamercolorbox}
-  \mbox{}\vspace{-6mm}
-  \begin{beamercolorbox}[ht=4mm,sep=.2cm,wd=\@tempdima]{titlerule}
-  \end{beamercolorbox}
-%  \mbox{}\vspace{-5mm}\transparent{.80}\mbox{}%
-  \begin{beamercolorbox}[ht=.70\@tempdimb,sep=.2cm,center,dp=.3\@tempdimb,wd=\@tempdima]{}
-     \lh@thanks
-  \end{beamercolorbox}
-  \begin{beamercolorbox}[ht=23mm,sep=.2cm,center,wd=\@tempdima]{footer}
+  \begin{minipage}[][\@tempdimb][t]{\@tempdima}
+  % \begin{beamercolorbox}[sep=0.2cm,wd=\@tempdima]{footer}
+  #1%
+  % \end{beamercolorbox}
+\end{minipage}
+\begin{beamercolorbox}[sep=0.2cm,wd=\@tempdima]{footer}
   \raggedright
   \rlap{\noindent\small\textbf{\,\,\,\,Contact:}}%
-  {\scriptsize
+  {\footnotesize
     \hfill\begin{minipage}[t]{.45\@tempdima}\raggedleft
       \hfill\lh@contactauthor\\
       Department of Computer Science\\
@@ -376,12 +380,48 @@
     \end{minipage}\hfill}
 \end{beamercolorbox}
   \begin{beamercolorbox}[ht=0mm,sep=.2cm,wd=\@tempdima]{}
-{\setlength{\unitlength}{1mm}\begin{picture}(0,0)
-\put(0,4){\href{https://logicalhacking.com}{\lhSmallLogoDark[width=7mm]}}
+{\setlength{\unitlength}{1em}\begin{picture}(0,0)
+\put(0,1.2){\href{https://logicalhacking.com}{\lhSmallLogoDark[width=8mm]}}
 \end{picture}}
 \end{beamercolorbox}
 \end{frame}
 }
+
+
+
+\newcommand{\ThanksFrame}{%
+  \ContactFrame{\vfil\centering \lh@thanks\vfil}
+}
+
+\newcommand{\KeyTakeAwayFrame}[1]{%
+  \ContactFrame{%
+    \medskip
+    \begin{columns}
+      \begin{column}{.18\paperwidth}
+      \end{column}
+      \begin{column}{.695\paperwidth}
+        \;\textbf{\large\alert{Key Take-Aways}}\\[-.2\baselineskip]
+        {\color{lhDarkGray}%
+        \parbox{0pt}{\rule{0.69\paperwidth}{.3pt}}}
+    \end{column}
+      \begin{column}{.005\paperwidth}
+      \end{column}
+    \end{columns}
+    \smallskip
+    \begin{columns}
+      \begin{column}{.2\paperwidth}
+        \includegraphics[width=.9\columnwidth]{lh-bulb}
+      \end{column}
+      \begin{column}{.695\paperwidth}
+        #1
+      \end{column}
+      \begin{column}{.005\paperwidth}
+      \end{column}
+    \end{columns} 
+  }
+}
+
+
 
 \DeclareDocumentCommand{\PartFrame}{ O{red} O{lhWhite} m }{%
   \setbeamercolor{footer}{fg=#1, bg=#2}
