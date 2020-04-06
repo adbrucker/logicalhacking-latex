@@ -65,7 +65,7 @@
     rectangle (0.5\paperwidth-20,0.5\paperheight-12);
     \draw (-0.5\paperwidth+15,0.5\paperheight-225) node [anchor=base west]
       {\lhcomLogoLight[height=1.1cm]};
-    \draw (.37\paperwidth,0.5\paperheight-225) node [anchor=base west]
+    \draw (0.5\paperwidth-15,0.5\paperheight-225) node [anchor=base east]
       {\partnerLogo[height=1.1cm]};
     \draw (0,0.5\paperheight-30) node
     {\textcolor{lhBlack}{{\usekomafont{title}{\huge \@title}} }};
