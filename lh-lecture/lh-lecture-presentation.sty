@@ -12,6 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \RequirePackage{etoolbox}
 \RequirePackage{graphicx}
+\RequirePackage{keycommand}
 
 \ProvidesPackage{lh-lecture-presentation}
      [2017/02/08 v0.0  LaTeX style for lectures (add-on to lh-presentation)]
@@ -30,7 +31,9 @@
   \newboolean{lh@lecture@cloze}
   \setboolean{lh@lecture@cloze}{false}
 
-\newenvironment{lecturedesc}[7]{%
+
+%%%% OLD Definition:   
+\newenvironment{lecturedesc}[7]{
   \lecturedate{#3}%
   \lecture{#1}{#2}%
   \lecturelength{#4}%
@@ -61,6 +64,98 @@
 \end{bibunit}
 }
 
+\newcounter{lh@lecture@part@cnt}
+\stepcounter{lh@lecture@part@cnt}
+
+\newcommand{\lh@lecture}[2]{%
+  \@expandtwoargs\lecture{#1}{\expanded{#2}}%
+}%
+
+\newcommand{\centry}[2]{\item[ \usebeamercolor*{normal
+    text} #1] #2}
+\newkeyenvironment*{lecturepart}[%
+  part=%
+  ,label=%
+  ,date=%
+  ,lastmodify=%
+  ,duration=%
+  ,visual={lh-title-visual-lock-16x9}%
+  ,bool bibliography=false%
+  ,bool cloze=false%
+  ,takeaways=%
+  ,changelog=%
+  ]{%
+
+  \lh@lecture{Part \thelh@lecture@part@cnt: \commandkey{part}}{\commandkey{label}}
+  \ifthenelse{\equal{\commandkey{lastmodify}}{}}{%
+    \lecturedate{\commandkey{date}}%
+  }{%
+    \lecturedate{\commandkey{date} (Last modification: \commandkey{lastmodify})}%
+  }
+  \lecturelength{\commandkey{duration}}%
+  \part{Part \thelh@lecture@part@cnt: \commandkey{part}}
+  \subtitle{Part \thelh@lecture@part@cnt: \commandkey{part}}%
+
+  \titlevisual{\commandkey{visual}}%
+  \ifthenelse{\equal{\commandkey{bibliography}}{1}}{%
+    \setboolean{lh@lecture@bib}{true}
+  }{%
+    \setboolean{lh@lecture@bib}{false}
+  }
+  \ifthenelse{\equal{\commandkey{cloze}}{1}}{%
+    \setboolean{lh@lecture@cloze}{true}
+  }{%
+    \setboolean{lh@lecture@cloze}{false}
+  }
+  \begin{frame}[plain]\maketitle\end{frame}%
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents[sectionstyle=show/show,subsectionstyle=hide/hide]
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[above, xshift=-2.5cm,yshift=0.4cm] at (current page.south east){%
+      \scalebox{0.6}{\begin{minipage}{7.42cm}
+        \begin{block}{Changelog}
+          \begin{description}
+            \commandkey{changelog}
+          \centry{\commandkey{date}}{Initial release} 
+          \end{description}
+        \end{block}
+      \end{minipage}}
+    };
+\end{tikzpicture}
+\end{frame}
+
+
+
+  
+  \begin{bibunit}[alpha]
+}{
+     \ifcommandkey{takeaways}{%
+       \KeyTakeAwayFrame{
+         \commandkey{takeaways}
+       }
+     }{%
+       \ThanksFrame
+     }  
+     \section{Appendix}
+     \ifthenelse{\boolean{lh@lecture@bib}}{%
+     \begin{frame}[allowframebreaks]
+       \frametitle{Bibliography}
+       \footnotesize
+       \putbib[adb-long,brucker,fmde]
+     \end{frame}}{}
+     \ifthenelse{\boolean{lh@lecture@cloze}}{%
+       \begin{frame}
+       \frametitle{Cloze Solutions}
+       \printendnotes
+     \end{frame}}{}
+ \end{bibunit}
+\stepcounter{lh@lecture@part@cnt}
+}
+
+
+
+  
 
 \newcommand\appendtographicspath[1]{%
   \gappto\Ginput@path{{#1}}%
