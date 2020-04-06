@@ -12,7 +12,7 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesClass{lh-exercise}%
   [2016/12/28 v0.0  LaTeX class for home work / exercise sheets
-  followign the  cooperate design of LogicalHacking.com]
+  following the cooperate design of LogicalHacking.com]
 
 \PassOptionsToClass{\CurrentOption}{scrartcl}
 \LoadClass[abstracton,DIV11, 11pt,a4paper]{scrartcl}[]
