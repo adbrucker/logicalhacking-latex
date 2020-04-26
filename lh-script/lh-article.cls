@@ -169,3 +169,26 @@
 }
 
 \RenewEnviron{abstract}[1][]{\lh@abstract[#1]{\BODY}}
+
+\renewcommand{\labelitemi}{
+  \tikz{
+    \draw[fill=lhOrange,draw=none] (0, 0) rectangle(0.1, 0.1);
+    \draw[fill=lhOrange,draw=none] (0.1, 0.1) rectangle(0.2, 0.2);
+    \draw[fill=lhOrange,draw=none] (0, 0.2) rectangle(0.1, 0.3);
+  }
+}
+\renewcommand{\labelitemii}{
+  \tikz{
+    \draw[fill=lhDarkGray,draw=none] (0, 0) rectangle(0.075, 0.075);
+    \draw[fill=lhDarkGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+    \draw[fill=lhDarkGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+  }
+}
+
+\renewcommand{\labelitemiii}{
+  \tikz{
+    \draw[fill=lhLightGray,draw=none] (0, 0) rectangle(0.075, 0.075);
+    \draw[fill=lhLightGray,draw=none] (0.075, 0.075) rectangle(0.15, 0.15);
+    \draw[fill=lhLightGray,draw=none] (0, 0.15) rectangle(0.075, 0.225);
+  }
+}
