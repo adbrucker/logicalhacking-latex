@@ -32,6 +32,11 @@
 \usepackage{fontawesome}
 \usepackage{lastpage}
 \usepackage{scrlayer-scrpage}
+\RequirePackage{keycommand}
+\RequirePackage{environ}
+\usepackage{adjustbox}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
 
 \let\oldauthor\author
 \renewcommand{\author}[2][1]{\oldauthor{#2}}
@@ -52,7 +57,8 @@
 \usepackage{hyperref}
 \urlstyle{sf}
 
-\addtokomafont{date}{\small}
+\addtokomafont{date}{\small\color{black}}
+\addtokomafont{title}{\color{lhOrange}}
 
 \backgroundsetup{
   scale=1,
@@ -68,7 +74,7 @@
     \draw (0.5\paperwidth-15,0.5\paperheight-225) node [anchor=base east]
       {\partnerLogo[height=1cm]};
     \draw (0,0.5\paperheight-30) node
-    {\textcolor{lhOrange}{{\usekomafont{title}{\huge \@title}} }};
+    {\usekomafont{title}{\huge \@title}} ;
     \draw (0,0.5\paperheight-53) node%
     {\textcolor{lhBlack}{%
       {\ifx\@subtitle\@empty\else\usekomafont{subtitle}{\@subtitle}\fi}%
@@ -88,7 +94,7 @@
          \usekomafont{publishers}{\normalsize%
            \begin{tabular}[t]{c}\@publishers
            \end{tabular}}\\[2ex]
-         {\textcolor{lhBlack}\usekomafont{date}\@date}
+         {\usekomafont{date}\@date}%
          };
      \end{tikzpicture}}
 }
@@ -104,3 +110,62 @@
 \cfoot{\footnotesize\textnormal{\lh@classification}}
 \ofoot{\footnotesize\textnormal{Page \thepage\ of \pageref{LastPage}}}
 \pagestyle{scrheadings}
+
+
+\newcommand{\lh@saveparinfos}{%
+  \edef\lh@indent{\the\parindent}%
+  \edef\lh@parskip{\the\parskip}%
+}
+\newcommand{\lh@useparinfo}{%
+  \setlength{\parindent}{\lh@indent}%
+  \setlength{\parskip}{\lh@parskip}%
+}
+\lh@saveparinfos
+
+\newcommand{\centry}[2]{\item[#1] #2}
+
+\newkeycommand*\lh@abstract[%
+,changelog=%
+,keywords=%
+][1]{%
+  \begin{adjustbox}{center}
+    \begin{minipage}{.85\paperwidth}
+      \begin{minipage}{.58\textwidth}%
+        \begin{tcolorbox}[%
+          colback=lhLightGray%
+          ,colframe=lhDarkGray%
+          ,colbacklower=lhGreen%
+          ,equal height group=abstract%
+          ,sharp corners%
+          ,title=\textbf{Abstract}%
+          ]\footnotesize\lh@useparinfo%
+          \noindent #1%
+          \ifcommandkey{keywords}{%
+            \mbox{}\smallskip\\\noindent\textbf{Keywords:\\}%
+                   \noindent \commandkey{keywords}%
+          }{}%
+        \end{tcolorbox}
+      \end{minipage}%
+      \hfill%
+      \begin{minipage}{.40\textwidth}
+        \begin{tcolorbox}[
+          colback=lhLightGray%
+          ,colframe=lhDarkGray%
+          ,colbacklower=lhGreen%
+          ,equal height group=abstract%
+          ,sharp corners%
+          ,title=\textbf{Changelog}%
+          ,valign=bottom%
+          ]\footnotesize%
+          \ifcommandkey{changelog}{%
+            \begin{description}%
+              \commandkey{changelog}%
+            \end{description}%
+          }{}%
+        \end{tcolorbox}
+      \end{minipage}
+    \end{minipage}
+  \end{adjustbox}\bigskip%
+}
+
+\RenewEnviron{abstract}[1][]{\lh@abstract[#1]{\BODY}}
