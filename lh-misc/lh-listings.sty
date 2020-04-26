@@ -181,6 +181,7 @@
   % 
 }%
 %% 
+\IfFileExists{lh-listings-isar.sty}{\usepackage{lh-listings-isar}}
 
 \providecolor{isar}{named}{blue}
 \def\inlineisar{\lstinline[style=isar,breaklines=true,mathescape,breakatwhitespace=true]}
@@ -256,7 +257,8 @@
    ,tag=**[s]{@\{}{\}}%
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
-}%
+ }%
+\IfFileExists{lh-listings-sml.sty}{\usepackage{lh-listings-sml}}
 \def\inlinesml{\lstinline[style=sml,breaklines=true,mathescape,breakatwhitespace=true]}
 \newtcblisting{sml}[1][]{%
       listing only%
@@ -306,6 +308,8 @@
    ,keywordstyle=[5]{\itshape}%
   % 
 }
+\IfFileExists{lh-listings-ltx.sty}{\usepackage{lh-listings-lltx}}
+
 \lstdefinestyle{ltx}{style=lltx,
                 basicstyle=\ttfamily\small}%
 \def\inlineltx{\lstinline[style=ltx, breaklines=true,columns=fullflexible]}
@@ -362,6 +366,7 @@
    ,keywordstyle=[5]{\itshape}%
   % 
 }
+\IfFileExists{lh-listings-bash.sty}{\usepackage{lh-listings-bash}}
 \def\inlinebash{\lstinline[style=bash, breaklines=true,columns=fullflexible]}
 \newcommand\@isabsolutepath[3]{%
   \StrLeft{#1}{1}[\firstchar]%
@@ -419,6 +424,7 @@
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
 }%
+\IfFileExists{lh-listings-java.sty}{\usepackage{lh-listings-java}}
 \def\inlinejava{\lstinline[style=java,breaklines=true,mathescape,breakatwhitespace=true]}
 \newtcblisting{java}[1][]{%
       listing only%
@@ -462,6 +468,7 @@
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
 }%
+\IfFileExists{lh-listings-ruby.sty}{\usepackage{lh-listings-ruby}}
 \def\inlineruby{\lstinline[style=ruby,breaklines=true,mathescape,breakatwhitespace=true]}
 \newtcblisting{ruby}[1][]{%
       listing only%
@@ -505,6 +512,7 @@
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
 }%
+\IfFileExists{lh-listings-python.sty}{\usepackage{lh-listings-python}}
 \def\inlinepython{\lstinline[style=python,breaklines=true,mathescape,breakatwhitespace=true]}
 \newtcblisting{python}[1][]{%
       listing only%
@@ -581,6 +589,7 @@
 \lstdefinestyle{AnB}{language=AnB,
   basicstyle=\small\ttfamily,
 }
+\IfFileExists{lh-listings-AnB.sty}{\usepackage{lh-listings-AnB}}
 \def\inlineAnB{\lstinline[style=AnB, columns=fullflexible]}
 \newtcblisting{AnB}[1][]{%
       listing only%
@@ -623,6 +632,7 @@
                 % numbers=left, numberstyle=\tiny, stepnumber=5
               }
 
+\IfFileExists{lh-listings-xml.sty}{\usepackage{lh-listings-xml}}
 \def\inlinexml{\lstinline[style=xml, columns=fullflexible]}
 \newtcblisting{xml}[1][]{%
       listing only%
@@ -667,6 +677,7 @@
                 % numbers=left, numberstyle=\tiny, stepnumber=5
               }
 
+\IfFileExists{lh-listings-html.sty}{\usepackage{lh-listings-html}}
 \def\inlinehtml{\lstinline[style=html, columns=fullflexible]}
 \newtcblisting{html}[1][]{%
       listing only%
@@ -727,6 +738,7 @@
                 backgroundcolor=\color{black!2}, frame=lines,
                 % numbers=left, numberstyle=\tiny, stepnumber=5
               }
+\IfFileExists{lh-listings-js.sty}{\usepackage{lh-listings-js}}
 
 \def\inlinejs{\lstinline[style=js, columns=fullflexible]}
 \newtcblisting{js}[1][]{%
@@ -771,6 +783,7 @@
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
 }%
+\IfFileExists{lh-listings-C.sty}{\usepackage{lh-listings-C}}
 \def\inlineC{\lstinline[style=C,breaklines=true,mathescape,breakatwhitespace=true]}
 \newtcblisting{C}[1][]{%
       listing only%
@@ -813,6 +826,7 @@
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
 }%
+\IfFileExists{lh-listings-SQL.sty}{\usepackage{lh-listings-SQL}}
 \def\inlinesql{\lstinline[style=SQL,breaklines=true,mathescape,breakatwhitespace=true]}
 \newtcblisting{sql}[1][]{%
       listing only%
@@ -848,13 +862,16 @@
    commentstyle=\itshape,%
    keywordstyle=\bfseries\color{CornflowerBlue},%
    ndkeywordstyle=\color{green},%
-   language=OCL
+   language=OCL%
+   ,keywordstyle=[7]{\color{Blue!60}\bfseries}%
+   ,morekeywords=[7]{Class,Association,Context,Pre,Post}%
    ,keywordstyle=[6]{\itshape}%
    ,morekeywords=[6]{args_type}%
    ,tag=**[s]{@\{}{\}}%
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
-}%
+ }%
+\IfFileExists{lh-listings-OCL.sty}{\usepackage{lh-listings-OCL}}
 \def\inlineocl{\lstinline[style=OCL,breaklines=true,mathescape,breakatwhitespace=true]}
 \newtcblisting{ocl}[1][]{%
       listing only%
