@@ -16,7 +16,7 @@
 
 
 \PassOptionsToClass{\CurrentOption}{scrartcl}
-\LoadClass[twoside=semi,DIV=calc,abstract=on, 11pt, a4paper]{scrartcl}
+\LoadClass[twoside=semi,abstract=on, 11pt, a4paper]{scrartcl}
 
 \ProcessOptions\relax
 
@@ -64,16 +64,16 @@
     \path [fill=lhOrange] (-0.5\paperwidth+20,0.5\paperheight)
     rectangle (0.5\paperwidth-20,0.5\paperheight-12);
     \draw (-0.5\paperwidth+15,0.5\paperheight-225) node [anchor=base west]
-      {\lhcomLogoLight[height=1.1cm]};
+      {\lhcomLogoLight[height=1cm]};
     \draw (0.5\paperwidth-15,0.5\paperheight-225) node [anchor=base east]
-      {\partnerLogo[height=1.1cm]};
+      {\partnerLogo[height=1cm]};
     \draw (0,0.5\paperheight-30) node
-    {\textcolor{lhBlack}{{\usekomafont{title}{\huge \@title}} }};
+    {\textcolor{lhOrange}{{\usekomafont{title}{\huge \@title}} }};
     \draw (0,0.5\paperheight-53) node%
     {\textcolor{lhBlack}{%
       {\ifx\@subtitle\@empty\else\usekomafont{subtitle}{\@subtitle}\fi}%
     }};%
-  \draw (0,0.5\paperheight-75) node%
+  \draw (0,0.5\paperheight-100) node%
     {\color{black}
   \usekomafont{author}{%
             \begin{tabular}[t]{c}
@@ -83,12 +83,12 @@
         };
  % \draw (0,0.5\paperheight-70) node
  % {\textcolor{lhBlack}{\Large\bfseries\lh@topic}};
-     \draw (0,0.5\paperheight-140) node[align=center]%
+     \draw (0,0.5\paperheight-160) node[align=center]%
      {\color{black}%
          \usekomafont{publishers}{\normalsize%
            \begin{tabular}[t]{c}\@publishers
            \end{tabular}}\\[2ex]
-           {\usekomafont{date}\@date}
+         {\textcolor{lhBlack}\usekomafont{date}\@date}
          };
      \end{tikzpicture}}
 }
@@ -99,8 +99,8 @@
 
 
 
-\ifoot{\small\textnormal{\textcopyright~\the\year~\href{https://logicalhacking.com}{LogicalHacking.com}}}
+\ifoot{\footnotesize\textnormal{\textcopyright~\the\year~\href{https://logicalhacking.com}{LogicalHacking.com}}}
 %\cfoot{\small\textnormal{Confidential}}
-\cfoot{\small\textnormal{\lh@classification}}
-\ofoot{\small\textnormal{Page \thepage\ of \pageref{LastPage}}}
+\cfoot{\footnotesize\textnormal{\lh@classification}}
+\ofoot{\footnotesize\textnormal{Page \thepage\ of \pageref{LastPage}}}
 \pagestyle{scrheadings}
