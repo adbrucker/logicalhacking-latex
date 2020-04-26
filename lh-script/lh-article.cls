@@ -123,6 +123,7 @@
 \lh@saveparinfos
 
 \newcommand{\centry}[2]{\item[#1] #2}
+\addtokomafont{sectioning}{\color{lhOrange}}
 
 \newkeycommand*\lh@abstract[%
 ,changelog=%
