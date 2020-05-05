@@ -16,16 +16,12 @@
 \usepackage{listings}
 \usepackage{listingsutf8}
 \usepackage{tikz}
-\usepackage{tcolorbox}
+\ifdefined\HCode
+\else
+\usepackage[many]{tcolorbox}
 \tcbuselibrary{listings}
 \tcbuselibrary{skins}
-\tcbuselibrary{breakable}
-\tcbuselibrary{hooks}
-\tcbuselibrary{raster}
-\tcbuselibrary{fitting}
-\tcbuselibrary{xparse}
-
-
+\fi
 \usepackage{xstring}
 
 \definecolor{OliveGreen}    {cmyk}{0.64,0,0.95,0.40}
@@ -33,6 +29,7 @@
 \definecolor{Blue}          {cmyk}{1,1,0,0}
 \definecolor{CornflowerBlue}{cmyk}{0.65,0.13,0,0}
 
+\newcommand{\lhdisplayfontsize}{\small}
 
 
 
@@ -206,10 +203,10 @@
      ,enhanced
      ,overlay={\node[draw,fill=isar!60!black,xshift=0pt,anchor=north
        east,font=\bfseries\footnotesize\color{white}]
-                at (frame.north east) {Isar};}
+                at (frame.north east) {Isabelle (Isar)};}
      ,listing options={
           style=isar
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
          ,mathescape
          ,#1
       }
@@ -238,7 +235,7 @@
         ,listing options={
            breakatwhitespace=true
           ,columns=flexible%
-          ,basicstyle=\small\rmfamily
+          ,basicstyle=\lhdisplayfontsize\rmfamily
           ,mathescape
           ,#1
       }
@@ -253,7 +250,7 @@
 \lstdefinestyle{sml}{
    basicstyle=\ttfamily,%
    commentstyle=\itshape,%
-   keywordstyle=\bfseries\color{CornflowerBlue},%
+   keywordstyle=\bfseries\color{blue!80!black},%
    ndkeywordstyle=\color{green},%
    language=ML
 %  ,literate={%
@@ -262,11 +259,15 @@
    ,keywordstyle=[6]{\itshape}%
    ,morekeywords=[6]{args_type}%
    ,tag=**[s]{@\{}{\}}%
-   ,tagstyle=\color{CornflowerBlue}%
+   ,tagstyle=\color{Blue}%
    ,markfirstintag=true%
  }%
 \IfFileExists{lh-listings-sml.sty}{\usepackage{lh-listings-sml}}
 \def\inlinesml{\lstinline[style=sml,breaklines=true,mathescape,breakatwhitespace=true]}
+\ifdefined\HCode
+% \lstnewenvironment{sml}[1][]{\lstset{style=sml,columns=flexible,basicstyle=\lhdisplayfontsize\ttfamily,mathescape,#1}}{}
+\lstnewenvironment{sml}[1][]{}{}
+\else
 \newtcblisting{sml}[1][]{%
       listing only%
      ,boxrule=0pt
@@ -285,11 +286,12 @@
         ,listing options={
           style=sml
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
   }%
+\fi
 %% </sml>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -318,7 +320,7 @@
 \IfFileExists{lh-listings-ltx.sty}{\usepackage{lh-listings-lltx}}
 
 \lstdefinestyle{ltx}{style=lltx,
-                basicstyle=\ttfamily\small}%
+                basicstyle=\ttfamily\lhdisplayfontsize}%
 \def\inlineltx{\lstinline[style=ltx, breaklines=true,columns=fullflexible]}
 % see
 % https://tex.stackexchange.com/questions/247643/problem-with-tcblisting-first-listed-latex-command-is-missing
@@ -340,7 +342,7 @@
       ,listing options={
              style=lltx,
             ,columns=flexible%
-            ,basicstyle=\small\ttfamily
+            ,basicstyle=\lhdisplayfontsize\ttfamily
             ,#1
        }
   }%
@@ -408,7 +410,7 @@
            ,columns=flexible%
            ,breaklines=true%
            ,prebreak=\mbox{\space\textbackslash}%
-           ,basicstyle=\small\ttfamily%
+           ,basicstyle=\lhdisplayfontsize\ttfamily%
            ,#1
       }
   }%
@@ -451,7 +453,7 @@
         ,listing options={
           style=java
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -495,7 +497,7 @@
         ,listing options={
           style=ruby
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -539,7 +541,7 @@
         ,listing options={
           style=python
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -568,7 +570,7 @@
         ,listing options={
            breakatwhitespace=true
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -594,7 +596,7 @@
   %morestring=[b]"
 }
 \lstdefinestyle{AnB}{language=AnB,
-  basicstyle=\small\ttfamily,
+  basicstyle=\lhdisplayfontsize\ttfamily,
 }
 \IfFileExists{lh-listings-AnB.sty}{\usepackage{lh-listings-AnB}}
 \def\inlineAnB{\lstinline[style=AnB, columns=fullflexible]}
@@ -617,7 +619,7 @@
           style=AnB      
           ,breakatwhitespace=true
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -660,7 +662,7 @@
           style=xml
           ,breakatwhitespace=true
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -705,7 +707,7 @@
           style=html
           ,breakatwhitespace=true
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -767,7 +769,7 @@
           style=js
           ,breakatwhitespace=true
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           %,mathescape
           ,#1
       }
@@ -777,8 +779,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 %% <C>
 \lstloadlanguages{C}
-\providecolor{C}{named}{lhCyan}
-\lstdefinestyle{C}{
+\providecolor{clang}{named}{lhCyan}
+\lstdefinestyle{clang}{
    basicstyle=\ttfamily,%
    commentstyle=\itshape,%
    keywordstyle=\bfseries\color{CornflowerBlue},%
@@ -790,27 +792,27 @@
    ,tagstyle=\color{CornflowerBlue}%
    ,markfirstintag=true%
 }%
-\IfFileExists{lh-listings-C.sty}{\usepackage{lh-listings-C}}
-\def\inlineC{\lstinline[style=C,breaklines=true,mathescape,breakatwhitespace=true]}
-\newtcblisting{C}[1][]{%
+\IfFileExists{lh-listings-clang.sty}{\usepackage{lh-listings-clang}}
+\def\inlineC{\lstinline[style=clang,breaklines=true,mathescape,breakatwhitespace=true]}
+\newtcblisting{clang}[1][]{%
       listing only%
      ,boxrule=0pt
      ,boxsep=0pt
-     ,colback=white!90!C
+     ,colback=white!90!clang
      ,enhanced jigsaw
-     ,borderline west={2pt}{0pt}{C!60!black}
+     ,borderline west={2pt}{0pt}{clang!60!black}
      ,sharp corners
      % ,before skip=10pt
      % ,after skip=10pt
      ,enlarge top by=0mm
      ,enhanced
-     ,overlay={\node[draw,fill=C!60!black,xshift=0pt,anchor=north
+     ,overlay={\node[draw,fill=clang!60!black,xshift=0pt,anchor=north
        east,font=\bfseries\footnotesize\color{white}]
                 at (frame.north east) {C};}
         ,listing options={
-          style=C
+          style=clang
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -853,7 +855,7 @@
         ,listing options={
           style=SQL
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
@@ -867,10 +869,10 @@
 \lstdefinestyle{OCL}{
    basicstyle=\ttfamily,%
    commentstyle=\itshape,%
-   keywordstyle=\bfseries\color{CornflowerBlue},%
-   ndkeywordstyle=\color{green},%
+   keywordstyle=\bfseries\color{CornflowerBlue!50!black},%
+   ndkeywordstyle=\color{Blue!70!black},%
    language=OCL%
-   ,keywordstyle=[7]{\color{Blue!60}\bfseries}%
+   ,keywordstyle=[7]{\color{Green!70!black}\bfseries}%
    ,morekeywords=[7]{Class,Association,Context,Pre,Post}%
    ,keywordstyle=[6]{\itshape}%
    ,morekeywords=[6]{args_type}%
@@ -898,7 +900,7 @@
         ,listing options={
           style=OCL
           ,columns=flexible%
-          ,basicstyle=\small\ttfamily
+          ,basicstyle=\lhdisplayfontsize\ttfamily
           ,mathescape
           ,#1
       }
