@@ -907,3 +907,48 @@
   }%
 %% </OCL>
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% <IDL>
+\lstloadlanguages{IDL}
+\providecolor{IDL}{named}{lhCyan}
+\lstdefinestyle{IDL}{
+   basicstyle=\ttfamily,%
+   commentstyle=\itshape,%
+   keywordstyle=\bfseries\color{CornflowerBlue!50!black},%
+   ndkeywordstyle=\color{Blue!70!black},%
+   language=IDL%
+   ,keywordstyle=[7]{\color{Green!70!black}\bfseries}%
+   ,morekeywords=[7]{Class,Association,Context,Pre,Post}%
+   ,keywordstyle=[6]{\itshape}%
+   ,morekeywords=[6]{args_type}%
+   ,tag=**[s]{@\{}{\}}%
+   ,tagstyle=\color{CornflowerBlue}%
+   ,markfirstintag=true%
+ }%
+\IfFileExists{lh-listings-IDL.sty}{\usepackage{lh-listings-IDL}}
+\def\inlineidl{\lstinline[style=IDL,breaklines=true,mathescape,breakatwhitespace=true]}
+\newtcblisting{idl}[1][]{%
+      listing only%
+     ,boxrule=0pt
+     ,boxsep=0pt
+     ,colback=white!90!IDL
+     ,enhanced jigsaw
+     ,borderline west={2pt}{0pt}{IDL!60!black}
+     ,sharp corners
+     % ,before skip=10pt
+     % ,after skip=10pt
+     ,enlarge top by=0mm
+     ,enhanced
+     ,overlay={\node[draw,fill=IDL!60!black,xshift=0pt,anchor=north
+       east,font=\bfseries\footnotesize\color{white}]
+                at (frame.north east) {IDL};}
+        ,listing options={
+          style=IDL
+          ,columns=flexible%
+          ,basicstyle=\lhdisplayfontsize\ttfamily
+          ,mathescape
+          ,#1
+      }
+  }%
+%% </IDL>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
