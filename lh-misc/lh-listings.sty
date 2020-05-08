@@ -185,6 +185,7 @@
   % 
 }%
 %% 
+\newcommand{\isabellefont}{\ttfamily}
 \IfFileExists{lh-listings-isar.sty}{\usepackage{lh-listings-isar}}
 
 \providecolor{isar}{named}{blue}
@@ -206,8 +207,10 @@
                 at (frame.north east) {Isabelle (Isar)};}
      ,listing options={
           style=isar
-          ,basicstyle=\lhdisplayfontsize\ttfamily
+          ,basicstyle=\lhdisplayfontsize\isabellefont
          ,mathescape
+         ,keepspaces
+         ,extendedchars
          ,#1
       }
   }%
